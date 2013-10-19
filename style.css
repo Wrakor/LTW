@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("http://themes.googleusercontent.com/static/fonts/sourcesanspro/v6/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
+}
+
+* {
+	padding:0px;
+	margin:0px;
+} /* tirar os espaçamentos default do browser */
+
+ul li {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background: #EEEEEE;
+	font-family: 'Source Sans Pro',sans-serif;
+	font-size: 12pt;
+	font-weight: normal;
+}
+
+
+#title h2{
+	padding-left: 10%;
+	/*color: rgba(255, 255, 255, 0.9);*/
+	color: white;
+	font-weight: bold;
+	font-family: 'Source Sans Pro',sans-serif;
+}
+
+#header-links a{
+	border-left: 1px solid white;
+	padding: 3%;
+	
+	font-size: 85%;
+}
+#header-links{
+	float: right;
+	padding-top: 0.3%;
+	padding-right: 7%;
+	white-space:nowrap;
+}
+
+#header {
+	background: #222222;
+	padding: 0.6%;
+}
+
+#header *{
+	display: inline;
+	color: white;
+}
+
+#documentos {
+	padding: 2% 5%;
+	color: #444444;
+	font-size: 10pt;
+	text-indent: 10px;
+}
+
+#intro p {
+	font-family: Calibri;
+	font-size: 12pt;
+	text-align: justify;
+}
+
+
