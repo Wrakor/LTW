@@ -7,9 +7,10 @@
 </head>
 
 <body>
+<div id="conteudo">
 	<div id="header">
 	    <div id ="title">
-	            <h2>Sistema de faturação online</h2>
+	    	<h2>Sistema de faturação online</h2>
 	    </div>
 	    <div id = "header-links">
 	        <nav>
@@ -36,5 +37,66 @@
     	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>';   
     }
   	?>
+
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  		a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  		a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	a</br>
+  	
+  	a</br>
+
 	</div>
+</div>
 </body>

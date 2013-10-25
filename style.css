@@ -1,3 +1,5 @@
+-webkit-font-smoothing:antialiased;
+
 @font-face {
   font-family: "Source Sans Pro";
   font-style: normal;
@@ -10,10 +12,6 @@
 	margin:0px;
 } /* tirar os espaçamentos default do browser */
 
-ul li {
-	display: inline;
-}
-
 a {
 	text-decoration: none;
 }
@@ -21,10 +19,20 @@ a {
 body {
 	background: #EEEEEE;
 	font-family: 'Source Sans Pro',sans-serif;
+
+}
+
+#conteudo {	
+	max-width: 1280px;
+	margin: 0 auto;
 	font-size: 12pt;
 	font-weight: normal;
 }
 
+#title {
+	float: left;
+	width: 500px;
+}
 
 #title h2{
 	padding-left: 10%;
@@ -36,20 +44,24 @@ body {
 
 #header-links a{
 	border-left: 1px solid white;
-	padding: 3%;
-	
-	font-size: 85%;
+	padding: 3%;	
+	font-size: 11pt;
 }
+
 #header-links{
 	float: right;
 	padding-top: 0.3%;
-	padding-right: 7%;
+	padding-right: 10%;
 	white-space:nowrap;
+	font-family: Calibri;
 }
 
 #header {
 	background: #222222;
 	padding: 0.6%;
+	position: fixed;
+	left: 0;
+	right: 0;
 }
 
 #header *{
@@ -58,7 +70,7 @@ body {
 }
 
 #documentos {
-	padding: 2% 5%;
+	padding: 5% 5%;
 	color: #444444;
 	font-size: 10pt;
 	text-indent: 10px;
