@@ -3,7 +3,7 @@
 <head>
 	<title> Sistema de faturação online </title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 	    <div id = "header-links">
 	        <nav>
 	            <ul>
-	                <li><a href="index.html"> Home </a></li>
+	                <li><a href="../index.html"> Home </a></li>
 	                <li><a href="consulta.html"> Consultar Documentos </a></li>
 	                <li><a href="#portfolio"> Our Works </a></li>
 	                <li><a href="#about-us"> About Us </a></li>

@@ -57,7 +57,7 @@ body {
 }
 
 #header {
-	background: #222222;
+	background-color: #222222;
 	padding: 0.6%;
 	position: fixed;
 	left: 0;
@@ -82,4 +82,14 @@ body {
 	text-align: justify;
 }
 
-
+#login {
+	position: absolute;
+	margin-top: 200px;
+	margin-left: 25%;
+	width: 50%;
+	border-top: 20 px;
+	padding: 10px;
+	background-color:  #222222;
+	text-align: center;
+	color: white;
+}
