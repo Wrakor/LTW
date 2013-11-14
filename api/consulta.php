@@ -8,10 +8,9 @@
     .text{display:none;
         padding-left: 15px;}
    
-     p{
-      display:none;
-    } 
-
+     p{ display:none;} 
+   
+    .mostrar {cursor: pointer; padding-left: 15px; text-decoration: underline;}
     .btab{padding-left: 15px;}
     .btab2{padding-left: 30px;}
     .btab3{padding-left: 45px;}
@@ -20,11 +19,18 @@
 	</script>
 	<script>
 		$(document).ready(function(){
- 	 		$("h3").click(function(e) {
-     			/*$(".text").slideToggle();
-      			$("h4").slideToggle();*/
-      			$(this).next('div').toggle();
+ 	 		$(".mostrar").click(function(e) {
+      			$(this).prev('.text').slideToggle("slow");
+            var text = $(this).text();
 
+            if (text == " Ver mais ")
+            {
+              $(this).text(' Ver menos ');
+            }
+            else
+            {
+              $(this).text(' Ver mais ');
+            }
       			e.preventDefault();
       		});
 		});
@@ -36,42 +42,52 @@
 	<?php 
 	include 'header.html';
 	echo '<div id="documentos">';
-	echo '<h2><b> Documentos existentes: </b></h2><br>';
 
 	$db = new PDO('sqlite:documentos.db');
-   	$invoices = $db->query('SELECT * FROM Invoice');
-   	$invoices_lines = $db->query('SELECT * FROM Line');
-   	$data = $invoices->fetchAll();
-   	$data2 = $invoices_lines->fetchAll();
+ 	$invoices = $db->query('SELECT * FROM Invoice');
+ 	$invoices_lines = $db->query('SELECT * FROM Line');
+  $products = $db->query('SELECT * FROM Product');
 
-   	foreach ($data as $row) 
-    {
-    	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>'; 
-    	
-    	echo '<div class="text">' . '<br><b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
-    	echo ' <b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br>';  
-    	echo ' <b>Linhas de Produtos:</b><br>';
+ 	$data = $invoices->fetchAll();
+ 	$data2 = $invoices_lines->fetchAll();
+  $data3 = $products->fetchAll();
 
-    	foreach ($data2 as $row2)
-    	{
-    		if ($row['id'] == $row2['idInvoice'])
-    		{
-    			echo ' <b class="btab">- Linha nº:</b>'  . $row2['LineNumber'] . '<br>';  
-    	   	 	echo '<b class="btab2">Código do Produto/Serviço:</b>'  . $row2['ProductCode'] . '<br>';  
-    	    	echo ' <b class="btab2">Nº de unidades vendidas:</b>'  . $row2['Quantity'] . '<br>';  
-    	    	echo ' <b class="btab2">Preço unitário:</b>'  . $row2['UnitPrice'] . '<br>';  
-    	    	echo ' <b class="btab2">Total:</b>'  . $row2['CreditAmount'] . '<br>'; 
+  echo '<h2> Faturas: </h2>';
+ 	foreach ($data as $row) 
+  {
+  	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>'; 
+  	
+  	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
+  	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';  
+    echo '<div class="text">';
+    echo '<b>Linhas de Produtos:</b><br>';
+   
+  
+  	foreach ($data2 as $row2)
+  	{
+  		if ($row['id'] == $row2['idInvoice'])
+  		{
+  			echo '<b class="btab">- Linha nº:</b>'  . $row2['LineNumber'] . '<br>';  
+	   	 	echo '<b class="btab2">Código do Produto/Serviço:</b>'  . $row2['ProductCode'] . '<br>';  
+	    	echo '<b class="btab2">Nº de unidades vendidas:</b>'  . $row2['Quantity'] . '<br>';  
+	    	echo '<b class="btab2">Preço unitário:</b>'  . $row2['UnitPrice'] . '<br>';  
+	    	echo '<b class="btab2">Total:</b>'  . $row2['CreditAmount'] . '<br>'; 
 
-    	    	echo ' <b class="btab2">Taxas:</b><br>';  
-    	    	echo ' <b class="btab3">Tipo de Taxa:</b>'  . $row2['TaxType'] . '<br>';  
-    	    	echo ' <b class="btab3">Percentagem da Taxa:</b>'  . $row2['TaxPercentage'] . '%<br>';  
-    		}
-    	}
+	    	echo '<b class="btab2">Taxas:</b><br>';  
+	    	echo '<b class="btab3">Tipo de Taxa:</b>'  . $row2['TaxType'] . '<br>';  
+	    	echo '<b class="btab3">Percentagem da Taxa:</b>'  . $row2['TaxPercentage'] . '%<br>';  
+  		}
+  	}
 
-    	echo ' <b>Total de Imposto: </b>'  . $row['TaxPayable'] . '<br>';  
-     	echo '<b>Total sem Imposto: </b>'  . $row['NetTotal'] . '<br>';  
-     	echo '<b>Total: </b>'  . $row['GrossTotal'] . '<br><br></div>'; 
-     }
+  	echo '<b>Total de Imposto: </b>'  . $row['TaxPayable'] . '<br>';  
+   	echo '<b>Total sem Imposto: </b>'  . $row['NetTotal'] . '<br>';  
+   	echo '<b>Total: </b>'  . $row['GrossTotal'] . '<br>';
+    echo '</div>'; 
+    echo '<h4 class="mostrar"> Ver mais </h4><br>';    
+   }
+    
+  echo '<br><h2> Produtos e Serviços: </h2><br>';
+    
   	?>
 	</div>
 	</div>
