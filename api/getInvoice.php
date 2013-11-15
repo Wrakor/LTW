@@ -33,15 +33,12 @@
 
 					$numFat = $_GET["numFatura"];
 						
-					$db = new PDO('sqlite:documentos.db');
+					$db = new PDO('sqlite:database/documents.db');
 				 	$invoices = $db->query('SELECT * FROM Invoice');
 				 	$invoices_lines = $db->query('SELECT * FROM Line');
-				    $products = $db->query('SELECT * FROM Product');
 
 				 	$data = $invoices->fetchAll();
 				 	$data2 = $invoices_lines->fetchAll();
-				    $data3 = $products->fetchAll();
-
 
 				  echo '<h2> Faturas: </h2>';
 				 	foreach ($data as $row) 
@@ -105,6 +102,10 @@
 						   
 						}
 
+				  }
+
+				   if(empty($json_array)) {
+				  	echo json_encode(array('error'=> array('code' => 404,'reason'=>'Invoice not found')));
 				  }
 
 			?>	

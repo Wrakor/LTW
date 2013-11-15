@@ -21,7 +21,7 @@
 	        </nav>
 	    </div>
 	</div>
-		<div id="InvoiceForm">
+		<div id="InvoiceForm" style="margin-top:150px;position:fixed;">
 			<form action="api/getInvoice.php" method="get">
 			ID da fatura a mostrar:
 			<input type = "text" name = "numFatura" maxlength = "30" />
@@ -29,7 +29,7 @@
 			</form>
 		</div>
 
-		<div id="CustomerForm">
+		<div id="CustomerForm" style="margin-top:190px;position:fixed;">
 			<form action="api/getCustomer.php" method="get">
 			ID Cliente a mostrar:
 			<input type = "number" name = "idCust" maxlength = "10" />
@@ -38,10 +38,19 @@
 		</div>
 
 
-		<div id="ProductForm" style="margin-top:150px;">
+		<div id="ProductForm" style="margin-top:75px;position:fixed;">
 			<form action="api/getProduct.php" method="get">
 			Codigo produto a mostrar:
 			<input type = "number" name = "ProdCod" maxlength = "10" />
+			<input type="submit"/>
+			</form>
+		</div>
+
+
+		<div id="PrintFactForm" style="margin-top:110px;position:fixed">
+			<form action="api/getInvoicePrint.php" method="get">
+			ID da fatura a imprimir:
+			<input type = "text" name = "numFaturaPr" maxlength = "30" />
 			<input type="submit"/>
 			</form>
 		</div>
