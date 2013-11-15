@@ -100,3 +100,9 @@ body {
 	margin-top: 75px;
 	color: white;
 }
+
+#CustomerForm {
+	position: absolute;
+	margin-top: 125px;
+	color: white;
+}
