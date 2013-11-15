@@ -94,3 +94,9 @@ body {
 	text-align: center;
 	color: white;
 }
+
+#InvoiceForm {
+	position: fixed;
+	margin-top: 75px;
+	color: white;
+}

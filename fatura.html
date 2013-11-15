@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+	<title> Sistema de Faturação </title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="header">
+	    <div id ="title">
+	            <h2>Sistema de Faturação</h2>
+	    </div>
+	    <div id = "header-links">
+	        <nav>
+	            <ul>
+	                <li><a href="#main"> Home </a></li>
+	                <li><a href="api/consulta.php"> Consultar Documentos </a></li>
+	                <li><a href="#portfolio"> Registar </a></li>
+	                <li><a href="#about-us"> About Us </a></li>
+	            </ul>
+	        </nav>
+	    </div>
+	</div>
+		<div id="InvoiceForm">
+			<form action="api/getInvoice.php" method="get">
+			ID da fatura a mostrar:
+			<input type = "text" name = "numFatura" maxlength = "30" />
+			<input type="submit"/>
+			</form>
+		</div>
+	</body>
+</html>
