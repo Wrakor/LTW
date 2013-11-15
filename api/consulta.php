@@ -56,7 +56,7 @@
   echo '<h2> Faturas: </h2>';
  	foreach ($data as $row) 
   {
-  	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>'; 
+  	echo '<h3 class="btab">' . '- ' . $row['InvoiceNo'] . '</h3>'; 
   	
   	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
   	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';  
@@ -68,7 +68,7 @@
   	{
   		if ($row['id'] == $row2['idInvoice'])
   		{
-  			echo '<b class="btab">- Linha nº:</b>'  . $row2['LineNumber'] . '<br>';  
+  			echo '<b class="btab">- Linha nº </b>'  . $row2['LineNumber'] . '<br>';  
 	   	 	echo '<b class="btab2">Código do Produto/Serviço:</b>'  . $row2['ProductCode'] . '<br>';  
 	    	echo '<b class="btab2">Nº de unidades vendidas:</b>'  . $row2['Quantity'] . '<br>';  
 	    	echo '<b class="btab2">Preço unitário:</b>'  . $row2['UnitPrice'] . '<br>';  
@@ -87,8 +87,19 @@
     echo '<h4 class="mostrar"> Ver mais </h4><br>';    
    }
     
-  echo '<br><h2> Produtos e Serviços: </h2><br>';
-    
+  echo '<h2> Produtos e Serviços: </h2>';
+  foreach ($data3 as $row) 
+  {  
+    echo '<h3 class="btab">' . '- ' . $row['ProductCode'] . '</h3>'; 
+
+    echo '<div class="btab">' . '<b>Descrição: </b>' . $row['ProductDescription'] . '<br></div>';  
+
+    echo '<div class="text"> <b>Preço Unitário: </b>' . $row['UnitPrice'] . '</br>'; 
+    echo '<b>Unidade de medida: </b>' . $row['UnitOfMeasure'] . '</br></div>'; 
+    echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
+  }
+
+
   	?>
 	</div>
 	</div>
