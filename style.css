@@ -17,15 +17,18 @@ a {
 }
 
 body {
-	background: #EEEEEE;
+	/*background: red;*/
+	background-image: url('http://www.wallm.com/images/2012/12/grey-website-background-illusionapparel.jpg');
 	font-family: 'Calibri',sans-serif;
 }
 
 #conteudo {	
-	max-width: 1280px;
+	max-width: 1080px;
+	border-radius: 15px;
 	margin: 0 auto;
 	font-size: 12pt;
 	font-weight: normal;
+	background: #EEEEEE;
 }
 
 #title {
@@ -34,7 +37,7 @@ body {
 }
 
 #title h2{
-	padding-left: 10%;
+	padding-left: 25%;
 	/*color: rgba(255, 255, 255, 0.9);*/
 	color: white;
 	font-family: 'Source Sans Pro',sans-serif;
@@ -49,7 +52,7 @@ body {
 #header-links{
 	float: right;
 	padding-top: 0.3%;
-	padding-right: 10%;
+	padding-right: 11%;
 	white-space:nowrap;
 	font-family: Calibri;
 }

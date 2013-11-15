@@ -38,9 +38,10 @@
 </head>
 
 <body>
-<div id="conteudo">	
+
 	<?php 
 	include 'header.html';
+  echo '<div id="conteudo">';
 	echo '<div id="documentos">';
 
 	$db = new PDO('sqlite:documentos.db');
