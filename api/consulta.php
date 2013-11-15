@@ -38,7 +38,6 @@
 </head>
 
 <body>
-
 	<?php 
 	include 'header.html';
   echo '<div id="conteudo">';
@@ -48,12 +47,24 @@
  	$invoices = $db->query('SELECT * FROM Invoice');
  	$invoices_lines = $db->query('SELECT * FROM Line');
   $products = $db->query('SELECT * FROM Product');
+  $customers = $db->query('SELECT * FROM Customer');
 
  	$data = $invoices->fetchAll();
  	$data2 = $invoices_lines->fetchAll();
   $data3 = $products->fetchAll();
+  $data4 = $customers->fetchAll();
+  
+  echo '<h1> Listagem sumarizada de documentos </h1><br>';
+
 
   echo '<h2> Faturas: </h2>';
+
+  echo ' <form action="getInvoice.php" method="get">
+  Pesquisa por ID:
+  <input type = "text" name = "numFatura" maxlength = "30" />
+  <input type="submit"/>
+  </form><br>';
+
  	foreach ($data as $row) 
   {
   	echo '<h3 class="btab">' . '- ' . $row['InvoiceNo'] . '</h3>'; 
@@ -87,7 +98,7 @@
     echo '<h4 class="mostrar"> Ver mais </h4><br>';    
    }
     
-  echo '<h2> Produtos e Serviços: </h2>';
+  echo '<h2> Produtos e Serviços (Código de Produto): </h2>';
   foreach ($data3 as $row) 
   {  
     echo '<h3 class="btab">' . '- ' . $row['ProductCode'] . '</h3>'; 
@@ -99,8 +110,26 @@
     echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
   }
 
+  echo '<h2> Clientes (ID): </h2>';
+  foreach ($data4 as $row) 
+  {  
+    echo '<h3 class="btab">' . '- ' . $row['CustomerID'] . '</h3>'; 
 
-  	?>
+    echo '<div class="btab">' . '<b>Número de Contribuinte: </b>' .$row['CustomerTaxID'] . '<br>';  
+    echo '<b> Nome do Cliente: </b>'  . $row['CompanyName'] . '<br></div>';  
+
+    echo '<div class="text">';
+    echo '<b>Dados de Morada: </b><br>';
+    echo '<b class="btab"> Rua ou Avenida: </b>' . $row['AdressDetail'] . '<br>';
+    echo '<b class="btab"> Cidade: </b>' . $row['City'] . '<br>';
+    echo '<b class="btab"> Código Postal: </b>' . $row['PostalCode'] . '<br>';
+    echo '<b class="btab"> Código do País: </b>' . $row['Country'] . '<br>';
+    echo '<b>E-mail: </b>' . $row['Email'] . '<br>';
+
+    echo '</div>';
+    echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
+  }  
+  ?>
 	</div>
 	</div>
 </body>
