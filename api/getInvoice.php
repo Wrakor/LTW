@@ -101,13 +101,10 @@
 						    $merge = array_merge($array1,$array2,$array3);
 						    $json_array = json_encode($merge);
 						    echo $json_array;
+						
 						   
-						}	
+						}
 
-				  }
-
-				  if(empty($json_array)) {
-				  	echo json_encode(array('error'=> array('code' => 404,'reason'=>'Invoice not found')));
 				  }
 
 			?>	
