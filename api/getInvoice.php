@@ -33,7 +33,7 @@
 
 					$numFat = $_GET["numFatura"];
 						
-					$db = new PDO('sqlite:documentos.db');
+					$db = new PDO('sqlite:database/documents.db');
 				 	$invoices = $db->query('SELECT * FROM Invoice');
 				 	$invoices_lines = $db->query('SELECT * FROM Line');
 				    $products = $db->query('SELECT * FROM Product');

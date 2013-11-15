@@ -56,12 +56,11 @@
   
   echo '<h1> Listagem sumarizada de documentos </h1><br>';
 
-
   echo '<h2> Faturas: </h2>';
 
-  echo ' <form action="getInvoice.php" method="get">
-  Pesquisa por ID:
-  <input type = "text" name = "numFatura" maxlength = "30" />
+  echo ' <form action="showInvoice.php" method="get">
+  Pesquisa por ID: <br>
+  <input type = "text" name = "InvoiceNo" maxlength = "30" />
   <input type="submit"/>
   </form><br>';
 
@@ -72,8 +71,7 @@
   	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
   	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';  
     echo '<div class="text">';
-    echo '<b>Linhas de Produtos:</b><br>';
-   
+    echo '<b>Linhas de Produtos:</b><br>';   
   
   	foreach ($data2 as $row2)
   	{
@@ -94,11 +92,21 @@
   	echo '<b>Total de Imposto: </b>'  . $row['TaxPayable'] . '<br>';  
    	echo '<b>Total sem Imposto: </b>'  . $row['NetTotal'] . '<br>';  
    	echo '<b>Total: </b>'  . $row['GrossTotal'] . '<br>';
+
+    $path = 'showInvoice.php?InvoiceNo=' . $row['InvoiceNo']; 
+    echo '<br><a href=' . $path . '><button>Mostrar numa página</button></a><br><br>';
     echo '</div>'; 
     echo '<h4 class="mostrar"> Ver mais </h4><br>';    
    }
     
-  echo '<h2> Produtos e Serviços (Código de Produto): </h2>';
+  echo '<h2> Produtos e Serviços: </h2>';
+
+  echo ' <form action="showProduct.php" method="get">
+    Pesquisa por Código de Produto: <br>
+    <input type = "number" name = "ProductCode" maxlength = "30" />
+    <input type="submit"/>
+    </form><br>';
+
   foreach ($data3 as $row) 
   {  
     echo '<h3 class="btab">' . '- ' . $row['ProductCode'] . '</h3>'; 
@@ -106,11 +114,22 @@
     echo '<div class="btab">' . '<b>Descrição: </b>' . $row['ProductDescription'] . '<br></div>';  
 
     echo '<div class="text"> <b>Preço Unitário: </b>' . $row['UnitPrice'] . '</br>'; 
-    echo '<b>Unidade de medida: </b>' . $row['UnitOfMeasure'] . '</br></div>'; 
+    echo '<b>Unidade de medida: </b>' . $row['UnitOfMeasure'] . '</br>';
+    
+    $path = 'showProduct.php?ProductCode=' . $row['ProductCode']; 
+    echo '<br><a href=' . $path . '><button>Mostrar numa página</button></a><br><br>';
+    echo '</div>'; 
     echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
   }
 
-  echo '<h2> Clientes (ID): </h2>';
+  echo '<h2> Clientes : </h2>';
+
+  echo ' <form action="showCustomer.php" method="get">
+    Pesquisa por ID: <br>
+    <input type = "text" name = "CustomerID" maxlength = "30" />
+    <input type="submit"/>
+    </form><br>';
+
   foreach ($data4 as $row) 
   {  
     echo '<h3 class="btab">' . '- ' . $row['CustomerID'] . '</h3>'; 
@@ -126,10 +145,12 @@
     echo '<b class="btab"> Código do País: </b>' . $row['Country'] . '<br>';
     echo '<b>E-mail: </b>' . $row['Email'] . '<br>';
 
+    $path = 'showCustomer.php?CustomerID=' . $row['CustomerID']; 
+    echo '<br><a href=' . $path . '><button>Mostrar numa página</button></a><br><br>';
     echo '</div>';
     echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
   }  
   ?>
 	</div>
-	</div>
+  </div>
 </body>
