@@ -5,7 +5,7 @@ CREATE TABLE Invoice (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	InvoiceNo VARCHAR NOT NULL,
 	InvoiceDate DATE,
-	CustomerID INTEGER FOREIGN KEY,
+	CustomerID INTEGER,
 	TaxPayable NUMBER,
 	NetTotal NUMBER,
 	GrossTotal NUMBER

@@ -123,3 +123,8 @@ body {
 	padding-right: 0px;
 	margin-right: -60px;
 }
+
+#pesquisas_avancadas {
+	padding-top: 50px;
+	min-height: 30px;
+}

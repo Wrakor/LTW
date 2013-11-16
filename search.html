@@ -13,10 +13,9 @@
 	    <div id = "header-links">
 	        <nav>
 	            <ul>
-	                <li><a href="#main"> Home </a></li>
-	                <li><a href="api/consulta.php"> Consultar Documentos </a></li>
-	                <li><a href="#portfolio"> Registar </a></li>
-	                <li><a href="#about-us"> About Us </a></li>
+	                <li><a href="index.html"> Home </a></li>
+	                <li><a href="api/checkDocuments.php"> Consultar Documentos </a></li>
+	                <li><a href="search.html"> Pesquisa Avançada</a></li>
 	            </ul>
 	        </nav>
 	    </div>
@@ -24,6 +23,7 @@
 
 	<div id="conteudo">
 	
+	<div id ="pesquisas_avancadas">
 		<div id="InvoiceForm">
 			<form action="api/getInvoice.php" method="get">
 			ID da fatura a mostrar:
@@ -31,22 +31,7 @@
 			<input type="submit"/>
 			</form>
 		</div>
-
-		<div id="CustomerForm">
-			<form action="api/getCustomer.php" method="get">
-			ID Cliente a mostrar:
-			<input type = "number" name = "idCust" maxlength = "10" />
-			<input type="submit"/>
-			</form>
 		</div>
-
-
-		<div id="ProductForm" style="margin-top:150px;">
-			<form action="api/getProduct.php" method="get">
-			Codigo produto a mostrar:
-			<input type = "number" name = "ProdCod" maxlength = "10" />
-			<input type="submit"/>
-			</form>
 		</div>
 		</div>
 	</body>
