@@ -31,7 +31,7 @@
   					echo '<div id="conteudo">';
 					echo '<div id="documentos">';
 
-					$ProductCode = $_GET["ProdCod"];
+					$ProductCode = $_GET["ProductCode"];
 						
 					$db = new PDO('sqlite:database/documents.db');
 				 	$products = $db->query('SELECT * FROM Product');

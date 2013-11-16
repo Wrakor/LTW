@@ -31,7 +31,7 @@
   					echo '<div id="conteudo">';
 					echo '<div id="documentos">';
 
-					$numFat = $_GET["numFatura"];
+					$numFat = $_GET["InvoiceNo"];
 						
 					$db = new PDO('sqlite:database/documents.db');
 				 	$invoices = $db->query('SELECT * FROM Invoice');

@@ -17,7 +17,7 @@
 	<?php 
 	include 'header.html';
  	echo '<div id="conteudo">';
- 	echo '<div id="documentos">';
+ 	echo '<div class="documentos">';
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Product WHERE ProductCode = ?');
    	$stmt->execute(array($_GET['ProductCode']));

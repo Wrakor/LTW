@@ -31,7 +31,7 @@
   					echo '<div id="conteudo">';
 					echo '<div id="documentos">';
 
-					$idCustomer = $_GET["idCust"];
+					$idCustomer = $_GET["CustomerID"];
 						
 					$db = new PDO('sqlite:documentos.db');
 				 	$customers = $db->query('SELECT * FROM Customer');

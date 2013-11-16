@@ -29,6 +29,7 @@ body {
 	font-size: 12pt;
 	font-weight: normal;
 	background: #EEEEEE;
+	overflow: hidden;
 }
 
 #title {
@@ -61,6 +62,7 @@ body {
 	background-color: #222222;
 	padding: 0.6%;
 	position: fixed;
+	z-index: 1;
 	left: 0;
 	right: 0;
 }
@@ -70,10 +72,24 @@ body {
 	color: white;
 }
 
-#documentos {
-	padding: 5% 1%;
+.documentos {
+	padding: 5% 10%;
 	color: #444444;
 	font-size: 11pt;	
+	max-width: 500px;
+	float: left;
+}
+
+.documentos h1{
+	margin-left: -10%;
+}
+
+.documentos a:visited{
+	color: #444444;
+}
+
+.documentos a{
+	color: #444444;
 }
 
 #intro p {
@@ -92,4 +108,18 @@ body {
 	background-color:  #222222;
 	text-align: center;
 	color: white;
+}
+
+#pesquisas {
+	float: right;	
+	width: 200px;
+	padding-top: 10%;
+	padding-right: 9%;
+	border-left: 1px solid black;
+	min-height: 700px;
+}
+
+#pesquisas form {
+	padding-right: 0px;
+	margin-right: -60px;
 }
