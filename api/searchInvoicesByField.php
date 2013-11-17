@@ -81,7 +81,7 @@
 
 	<BODY>
 	<div id="conteudo">
-		<form action="return.php" method="GET">
+		<form action="return1Simple.php" method="GET">
 			OP:
 			<input type="radio" name="op" value="range"><label for="range">Range</label>
 			<input type="radio" name="op" value="equal"><label for="equal">Equal</label>
