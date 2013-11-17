@@ -128,3 +128,9 @@ body {
 	padding-top: 50px;
 	min-height: 30px;
 }
+
+.text{padding-left: 15px; display: none;}
+.mostrar {cursor: pointer; padding-left: 15px; text-decoration: underline;}
+.btab{padding-left: 15px;}
+.btab2{padding-left: 30px;}
+.btab3{padding-left: 45px;}

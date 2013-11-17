@@ -3,20 +3,13 @@
 <head>
 	<title> Sistema de faturação online </title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="../style.css">
-	<style type="text/css">
-    .text{display:none;
-        padding-left: 15px;}
-   
+	<link rel="stylesheet" href="style.css">
+
+	<style type="text/css">   
      p{ display:none;} 
-   
-    .mostrar {cursor: pointer; padding-left: 15px; text-decoration: underline;}
-    .btab{padding-left: 15px;}
-    .btab2{padding-left: 30px;}
-    .btab3{padding-left: 45px;}
 	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-	</script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
  	 		$(".mostrar").click(function(e) {

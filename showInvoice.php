@@ -3,14 +3,7 @@
 <head>
 	<title> Sistema de faturação online </title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="../style.css">
-	<style type="text/css">
-    .text{padding-left: 15px;}
-     
-    .btab{padding-left: 15px;}
-    .btab2{padding-left: 30px;}
-    .btab3{padding-left: 45px;}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -18,6 +11,7 @@
 	include 'header.html';
  	echo '<div id="conteudo">';
  	echo '<div class="documentos">';
+ 	
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Invoice WHERE InvoiceNo = ?');
    	$stmt->execute(array($_GET['InvoiceNo']));
@@ -34,7 +28,7 @@
 	  	
 	  	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
 	  	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';  
-	    echo '<div class="text">';
+	    echo '<div style="padding-left: 15px;">';
 	    echo '<b>Linhas de Produtos:</b><br>';   
 	  
 	  	foreach ($lines as $row2)
