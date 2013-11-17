@@ -1,6 +1,6 @@
 
 <?php
-	$db = new PDO('sqlite:..\database\documents.db');
+	$db = new PDO('sqlite:database\documents.db');
 
 	$InvoiceArray = array();
 
@@ -33,7 +33,7 @@
 							switch ($_GET['op'])
 							{
 								case 'equal':
-									if ($row['InvoiceNo'] == $_GET['value1'])
+									if (strtolower ($row['InvoiceNo']) == strtolower ($_GET['value1']))
 									{
 										$InvoiceArray2 = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
 										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);								
@@ -107,7 +107,7 @@
 							switch ($_GET['op'])
 							{
 								case 'equal':
-									if ($companyName == $_GET['value1'])
+									if ( strtolower ($companyName) == strtolower ($_GET['value1']))
 									{
 										$InvoiceArray2 = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
 										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);
@@ -199,7 +199,7 @@
 							}						
 							break;
 						case 'CompanyName': 
-							if ( ($companyName >= $_GET['value1']) && ($companyName <= $_GET['value2']))
+							if ( (strtolower ($companyName) >= strtolower ($_GET['value1'])) && (strtolower ($companyName) <= strtolower ($_GET['value2'])))
 							{
 								$InvoiceArray2 = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
 								'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);

@@ -1,6 +1,6 @@
 
 <?php
-	$db = new PDO('sqlite:..\database\documents.db');
+	$db = new PDO('sqlite:database\documents.db');
 
 	$InvoiceArray = array();
 
@@ -96,7 +96,7 @@
 							switch ($_GET['op'])
 							{
 								case 'equal':
-									if ($row['CompanyName'] == $_GET['value1'])
+									if (strtolower ($row['CompanyName']) == strtolower ($_GET['value1']))
 									{
 										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);		
@@ -151,7 +151,7 @@
 							}						
 							break;
 						case 'CompanyName': 
-							if ( ($row['CompanyName'] >= $_GET['value1']) && ($row['CompanyName'] <= $_GET['value2']))
+							if ( (strtolower ($row['CompanyName']) >= strtolower ($_GET['value1'])) && (strtolower ($row['CompanyName']) <= strtolower ($_GET['value2'])))
 							{
 								$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 								'CompanyName' =>  $row['CompanyName']);

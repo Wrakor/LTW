@@ -59,7 +59,7 @@
 							switch ($_GET['op'])
 							{
 								case 'equal':
-									if ($row['ProductDescription'] == $_GET['value1'])
+									if ( strtolower ($row['ProductDescription']) == strtolower ($_GET['value1']))
 									{
 										$InvoiceArray2 = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
 										'UnitPrice' =>  $row['UnitPrice']);
@@ -83,7 +83,7 @@
 									}
 									break;
 								case 'contains':
-									if(strpos($row['ProductDescription'],$_GET['value1']) !== false)
+									if(strpos(strtolower ($row['ProductDescription']),strtolower ($_GET['value1'])) !== false)
 									{
 										$InvoiceArray2 = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
 										'UnitPrice' =>  $row['UnitPrice']);
@@ -106,7 +106,7 @@
 							}
 							break;
 						case 'ProductDescription': 
-							if ( ($row['ProductDescription'] >= $_GET['value1']) && ($row['ProductDescription'] <= $_GET['value2']))
+							if ( (strtolower ($row['ProductDescription']) >= strtolower ($_GET['value1'])) && (strtolower ($row['ProductDescription']) <= strtolower ($_GET['value2'])))							
 							{
 								$InvoiceArray2 = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
 								'UnitPrice' =>  $row['UnitPrice']);
