@@ -1,6 +1,6 @@
 
 <?php
-	$db = new PDO('sqlite:database\documents.db');
+	$db = new PDO('sqlite:..\database\documents.db');
 
 	$InvoiceArray = array();
 
@@ -24,33 +24,29 @@
 								case 'equal':
 									if ($row['ProductCode'] == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];										
-										$InvoiceArray[] = $row['UnitPrice'];			
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);		
 									}
 									break;
 								case 'min':
 									if ($row['ProductCode'] >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];				
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);					
 									}
 									break;
 								case 'max':
 									if ($row['ProductCode'] <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];					
+										$$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);						
 									}
 									break;
 								case 'contains':
 									if(strpos($row['ProductCode'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];	
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);		
 									}
 									break;
 							}
@@ -61,33 +57,29 @@
 								case 'equal':
 									if ($row['ProductDescription'] == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];					
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);						
 									}
 									break;
 								case 'min':
 									if ($row['ProductDescription'] >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];					
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);						
 									}
 									break;
 								case 'max':
 									if ($row['ProductDescription'] <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];					
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);						
 									}
 									break;
 								case 'contains':
 									if(strpos($row['ProductDescription'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray[] = $row['ProductCode'];
-										$InvoiceArray[] = $row['ProductDescription'];
-										$InvoiceArray[] = $row['UnitPrice'];
+										$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);	
 									}
 									break;
 							}
@@ -100,17 +92,15 @@
 						case 'ProductCode': 
 							if ( ($row['ProductCode'] >= $_GET['value1']) && ($row['ProductCode'] <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['ProductCode'];
-								$InvoiceArray[] = $row['ProductDescription'];
-								$InvoiceArray[] = $row['UnitPrice'];				
+								$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);					
 							}
 							break;
 						case 'ProductDescription': 
 							if ( ($row['ProductDescription'] >= $_GET['value1']) && ($row['ProductDescription'] <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['ProductCode'];
-								$InvoiceArray[] = $row['ProductDescription'];
-								$InvoiceArray[] = $row['UnitPrice'];				
+								$InvoiceArray = array('ProductCode' => $row['ProductCode'], 'ProductDescription' => $row['ProductDescription'],
+										'UnitPrice' =>  $row['UnitPrice']);					
 							}						
 							break;						
 					}

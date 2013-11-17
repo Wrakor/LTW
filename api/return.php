@@ -1,6 +1,6 @@
 
 <?php
-	$db = new PDO('sqlite:database\documents.db');
+	$db = new PDO('sqlite:..\database\documents.db');
 
 	$InvoiceArray = array();
 
@@ -35,37 +35,29 @@
 								case 'equal':
 									if ($row['InvoiceNo'] == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];										
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);								
 									}
 									break;
 								case 'min':
 									if ($row['InvoiceNo'] >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'max':
 									if ($row['InvoiceNo'] <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 									}
 									break;
 								case 'contains':
 									if(strpos($row['InvoiceNo'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];	
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);	
 									}
 									break;
 							}
@@ -76,37 +68,29 @@
 								case 'equal':
 									if ($row['InvoiceDate'] == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 									}
 									break;
 								case 'min':
 									if ($row['InvoiceDate'] >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'max':
 									if ($row['InvoiceDate'] <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'contains':
 									if(strpos($row['InvoiceDate'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];	
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);	
 									}
 									break;
 							}
@@ -117,37 +101,29 @@
 								case 'equal':
 									if ($companyName == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'min':
 									if ($companyName >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'max':
 									if ($companyName <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 									}
 									break;
 								case 'contains':
 									if(strpos(strtolower ($companyName),strtolower ($_GET['value1'])) !== false)
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];	
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);		
 									}
 									break;								
 							}
@@ -158,37 +134,29 @@
 								case 'equal':
 									if ($row['GrossTotal'] == $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 									}
 									break;
 								case 'min':
 									if ($row['GrossTotal'] >= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 									}
 									break;
 								case 'max':
 									if ($row['GrossTotal'] <= $_GET['value1'])
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];					
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 									}
 									break;
 								case 'contains':
 									if(strpos($row['GrossTotal'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray[] = $row['InvoiceNo'];
-										$InvoiceArray[] = $row['InvoiceDate'];
-										$InvoiceArray[] = $companyName;
-										$InvoiceArray[] = $row['GrossTotal'];	
+										$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);		
 									}
 									break;
 							}
@@ -201,39 +169,29 @@
 						case 'InvoiceNo': 
 							if ( ($row['InvoiceNo'] >= $_GET['value1']) && ($row['InvoiceNo'] <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['InvoiceNo'];
-								$InvoiceArray[] = $row['InvoiceDate'];
-								$InvoiceArray[] = $companyName;
-								$InvoiceArray[] = $row['GrossTotal'];					
+								$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+										'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 							}
 							break;
 						case 'InvoiceDate': 
 							if ( ($row['InvoiceDate'] >= $_GET['value1']) && ($row['InvoiceDate'] <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['InvoiceNo'];
-								$InvoiceArray[] = $row['InvoiceDate'];
-								$InvoiceArray[] = $companyName;
-								$InvoiceArray[] = $row['GrossTotal'];					
+								$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+								'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 							}						
 							break;
 						case 'CompanyName': 
 							if ( ($companyName >= $_GET['value1']) && ($companyName <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['InvoiceNo'];
-								$InvoiceArray[] = $row['InvoiceDate'];
-								$InvoiceArray[] = $companyName;
-								$InvoiceArray[] = $row['GrossTotal'];					
+								$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+								'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);						
 							}
 							break;
 						case 'GrossTotal': 
 							if ( ($row['GrossTotal'] >= $_GET['value1']) && ($row['GrossTotal'] <= $_GET['value2']))
 							{
-								$InvoiceArray[] = $row['InvoiceNo'];
-								array_push($InvoiceArray, "\n");
-								
-								$InvoiceArray[] = $row['InvoiceDate'];
-								$InvoiceArray[] = $companyName;
-								$InvoiceArray[] = $row['GrossTotal'];					
+								$InvoiceArray = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'],
+								'CompanyName' => $companyName,'GrossTotal' => $row['GrossTotal']);					
 							}
 							break;
 					}
