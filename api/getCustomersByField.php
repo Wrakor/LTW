@@ -24,29 +24,33 @@
 								case 'equal':
 									if ($row['CustomerID'] == $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
-										'CompanyName' =>  $row['CompanyName']);												
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										'CompanyName' =>  $row['CompanyName']);	
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'min':
 									if ($row['CustomerID'] >= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);				
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'max':
 									if ($row['CustomerID'] <= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);				
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'contains':
 									if(strpos($row['CustomerID'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);	
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 							}
@@ -57,29 +61,33 @@
 								case 'equal':
 									if ($row['CustomerTaxID'] == $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);				
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'min':
 									if ($row['CustomerTaxID'] >= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);					
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'max':
 									if ($row['CustomerTaxID'] <= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);					
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'contains':
 									if(strpos($row['CustomerTaxID'],$_GET['value1']) !== false)
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 							}
@@ -90,29 +98,33 @@
 								case 'equal':
 									if ($row['CompanyName'] == $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);		
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'min':
 									if ($row['CompanyName'] >= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);					
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'max':
 									if ($row['CompanyName'] <= $_GET['value1'])
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);				
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;
 								case 'contains':
 									if(strpos(strtolower ($row['CompanyName']),strtolower ($_GET['value1'])) !== false)
 									{
-										$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+										$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 										'CompanyName' =>  $row['CompanyName']);
+										array_push($InvoiceArray, $InvoiceArray2);
 									}
 									break;								
 							}
@@ -125,22 +137,25 @@
 						case 'CustomerID': 
 							if ( ($row['CustomerID'] >= $_GET['value1']) && ($row['CustomerID'] <= $_GET['value2']))
 							{
-								$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+								$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
 								'CompanyName' =>  $row['CompanyName']);
+								array_push($InvoiceArray, $InvoiceArray2);
 							}
 							break;
 						case 'CustomerTaxID': 
 							if ( ($row['CustomerTaxID'] >= $_GET['value1']) && ($row['CustomerTaxID'] <= $_GET['value2']))
 							{
-								$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
-								'CompanyName' =>  $row['CompanyName']);				
+								$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+								'CompanyName' =>  $row['CompanyName']);	
+								array_push($InvoiceArray, $InvoiceArray2);
 							}						
 							break;
 						case 'CompanyName': 
 							if ( ($row['CompanyName'] >= $_GET['value1']) && ($row['CompanyName'] <= $_GET['value2']))
 							{
-								$InvoiceArray = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
-								'CompanyName' =>  $row['CompanyName']);			
+								$InvoiceArray2 = array('CustomerID' => $row['CustomerID'], 'CustomerTaxID' => $row['CustomerTaxID'],
+								'CompanyName' =>  $row['CompanyName']);
+								array_push($InvoiceArray, $InvoiceArray2);
 							}
 							break;
 					}
