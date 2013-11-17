@@ -12,32 +12,28 @@
 		</style>
 	</HEAD>
 
-	<BODY>
-		
+	<BODY>		
 		<div class="page">
 		<?php
-			$numFat = $_GET["numFaturaPr"];
+			$numFat = $_GET["InvoiceNo"];
 				
 			$db = new PDO('sqlite:database/documents.db');
 		 	$invoices = $db->query('SELECT * FROM Invoice');
 		 	$invoices_lines = $db->query('SELECT * FROM Line');
 		  
 		 	$data = $invoices->fetchAll();
-		 	$data2 = $invoices_lines->fetchAll();
-			
+		 	$data2 = $invoices_lines->fetchAll();			
 
 			$exists=false;
 
-
-			echo '<h2> Faturas: </h2>';
 			foreach ($data as $row) 
 			{
 
 				if($row['InvoiceNo']==$numFat) {
 					$exists=true;
 
-				 	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>'; 	
-				  	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
+				 	echo '<div class="btab">' . '<b>Número da Fatura: </b>' .$row['InvoiceNo'] . '<br>'; 
+				  	echo '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
 				  	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';
 				  
 							foreach ($data2 as $row2)

@@ -10,13 +10,13 @@
 	<div id="conteudo">
 		<div>
 			<?php
-					include 'header.html';
+				//	include '../header.html';
   					echo '<div id="conteudo">';
 					echo '<div id="documentos">';
 
 					$numFat = $_GET["InvoiceNo"];
 						
-					$db = new PDO('sqlite:database/documents.db');
+					$db = new PDO('sqlite:../database/documents.db');
 				 	$invoices = $db->query('SELECT * FROM Invoice');
 				 	$invoices_lines = $db->query('SELECT * FROM Line');
 
@@ -31,11 +31,12 @@
 						/*  	echo '<h3>' . '- ' . $row['InvoiceNo'] . '</h3>'; 	
 						  	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
 						  	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';*/
-						  		$array1 = array('InvoiceNo' => $row['InvoiceNo'], 'Data' => $row['InvoiceDate'], 
-						  		'ID de Cliente'=> $row['CustomerID']);
+						  		
 						  	//	echo json_encode(array('InvoiceNo' => $row['InvoiceNo'], 'Data' => $row['InvoiceDate'], 
 						  	//	'ID de Cliente'=> $row['CustomerID']));
+						  			$array2 = array();
 
+						  			
 									foreach ($data2 as $row2)
 								  	{
 								  		if ($row['id'] == $row2['idInvoice'])
@@ -55,14 +56,22 @@
 									    		'Numero de unidades vendidas' => $row2['Quantity'], 
 									    		'Preco unitario' => $row2['UnitPrice'], 'Total' => $row2['CreditAmount'], 
 									    		'Tipo de Taxa' => $row2['TaxType'], 'Percentagem da Taxa' => $row2['TaxPercentage']));*/
-									    	$array2= array('Linha:'=> array('Linha numero' => $row2['LineNumber'], 
+									    	$lineArr = array('Linha numero' => $row2['LineNumber'], 
 									    		'Codigo do ProdutoServico' => $row2['ProductCode'], 
 									    		'Numero de unidades vendidas' => $row2['Quantity'], 
 									    		'Preco unitario' => $row2['UnitPrice'], 'Total' => $row2['CreditAmount'], 
 									    		'Tipo de Taxa' => $row2['TaxType'], 
-									    		'Percentagem da Taxa' => $row2['TaxPercentage']));
+									    		'Percentagem da Taxa' => $row2['TaxPercentage']);
+
+
+									    	array_push($array2,$lineArr);
+
+									    	
 								  		}
+								 
 								  	}
+								  	$array1 = array('InvoiceNo' => $row['InvoiceNo'], 'Data' => $row['InvoiceDate'], 
+						  		'ID de Cliente'=> $row['CustomerID'],'Line: ' => $array2);
 
 						/*  	echo '<b>Total de Imposto: </b>'  . $row['TaxPayable'] . '<br>';  
 						   	echo '<b>Total sem Imposto: </b>'  . $row['NetTotal'] . '<br>';  
@@ -77,12 +86,11 @@
 						    				  'Total sem Imposto' => $row['NetTotal'],
 						    				  'Total' => $row['GrossTotal']));
 
-
-						    $merge = array_merge($array1,$array2,$array3);
+						    $merge = array_merge($array1,$array3);
 						    $json_array = json_encode($merge);
-						    echo $json_array;
-						
-						   
+
+						   // print_r($merge);
+						   echo $json_array;						   
 						}
 
 				  }

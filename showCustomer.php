@@ -10,7 +10,7 @@
 	<?php 
 	include 'header.html';
  	echo '<div id="conteudo">';
- 	echo '<div class="documentos">';
+ 	echo '<div class="documentos" style="border-right: none;">';
  	
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Customer WHERE CustomerID = ?');

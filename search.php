@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-
 <head>
 	<title> Sistema de Faturação </title>
-	<meta charset="utf-8"/>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 	<div id="header">
 	    <div id ="title">
-	    	<h2>Sistema de Faturação</h2>
+	            <h2>Sistema de Faturação</h2>
 	    </div>
 	    <div id = "header-links">
 	        <nav>
@@ -21,16 +20,26 @@
 	        </nav>
 	    </div>
 	</div>
-	<div id ="login">		
-		<FORM action="login.php" method="get">
-		<p><h3>Login</h3></p><br>
-		<p>Username:</p>
-		<INPUT type = "string" name = "username" maxlength = "15" />
-		<p>Password:</p>
-		<INPUT type = "password" name = "pass" maxlength = "16" />
-		<br><br>
-		<input type="submit"/>
-		</FORM>
-	</div>
 
-</body>
+	<div id="conteudo">
+	<div class="documentos" style="border-right: none;">
+	<div id ="pesquisas_avancadas">
+		<?php
+
+		echo '<h2> Faturas: </h2> <br>'; 
+		include "searchInvoicesByField.php";		
+		echo '<br>';
+		echo '<h2> Clientes: </h2> <br>';
+		include "searchCustomersByField.php";
+		echo '<br>';
+		echo '<h2> Produtos: </h2> <br>';
+		include "searchProductsByField.php";
+		echo '<br>';
+		?>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</body>
+</html>

@@ -4,13 +4,28 @@
 	<title> Sistema de faturação online </title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
+	<style type="text/css">
+		@media print {
+		    div#header {display: none;}
+			div#menu {display: none;}
+			button {display:none;}
+	}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+ 	 		$("button").click(function(e) {
+ 	 			window.print();
+ 	 		});
+ 	 	});
+	</script>
 </head>
 
 <body>
 	<?php 
 	include 'header.html';
  	echo '<div id="conteudo">';
- 	echo '<div class="documentos">';
+ 	echo '<div class="documentos" style="border-right: none;">';
  	
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Invoice WHERE InvoiceNo = ?');
@@ -24,7 +39,7 @@
    		$invoices_lines = $db->query('SELECT * FROM Line');
    		$lines = $invoices_lines->fetchAll();
    
-	  	echo '<h3 class="btab">' . '- ' . $row['InvoiceNo'] . '</h3>'; 
+	  	echo '<div class="btab">' . '<b>Número: </b>' .$row['InvoiceNo'] . '<br></div>';  
 	  	
 	  	echo '<div class="btab">' . '<b>Data: </b>' .$row['InvoiceDate'] . '<br>';  
 	  	echo '<b>ID de Cliente: </b>'  . $row['CustomerID'] . '<br></div>';  
@@ -50,7 +65,8 @@
 	  	echo '<b>Total de Imposto: </b>'  . $row['TaxPayable'] . '<br>';  
 	   	echo '<b>Total sem Imposto: </b>'  . $row['NetTotal'] . '<br>';  
 	   	echo '<b>Total: </b>'  . $row['GrossTotal'] . '<br><br>';  
-	   	echo '<button> teste </button>';
+   
+	   	echo '<button> Imprimir</button>';
    }
      ?>
 	</div>
