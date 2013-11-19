@@ -7,17 +7,19 @@
 
 <body>
 	<div id="header">
-	    <div id ="title">
-	            <h2>Sistema de Faturação</h2>
-	    </div>
-	    <div id = "header-links">
-	        <nav>
-	            <ul>
-	                <li><a href="index.html"> <img src="images/home-white.png" width="15" height="15" /> Home </a></li>
-	                <li><a href="checkDocuments.php"> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
-	                <li><a href="search.php"> <img src="images/search-white.png" width="15" height="15" /> Pesquisa Avançada </a></li>
-	            </ul>
-	        </nav>
+	    <div id="header-contents">
+		    <div id ="title">
+		    	<h2>Sistema de Faturação</h2>
+		    </div>
+		    <div id = "header-links">
+		        <nav>
+		            <ul>
+		                <li><a href="index.html"> <img src="images/home-white.png" width="15" height="15" /> Home </a></li>
+		                <li><a href="checkDocuments.php"> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
+		                <li><a href="search.php"> <img src="images/search-white.png" width="15" height="15" /> Pesquisa Avançada </a></li>
+		            </ul>
+		        </nav>
+		    </div>
 	    </div>
 	</div>
 
