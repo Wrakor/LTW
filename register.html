@@ -8,7 +8,7 @@
 
 <body>
 	<div id="header">
-	    <div id="header-contents">
+		<div id="header-contents">
 		    <div id ="title">
 		    	<h2>Sistema de Faturação</h2>
 		    </div>
@@ -18,10 +18,29 @@
 		                <li><a href="index.html"> <img src="images/home-white.png" width="15" height="15" /> Home </a></li>
 		                <li><a href="checkDocuments.php"> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
 		                <li><a href="search.php"> <img src="images/search-white.png" width="15" height="15" /> Pesquisa Avançada </a></li>
-		                 <li><a href="register.html"> Registar </a></li>
+		            	<li><a href="register.html"> Registar </a></li>
+    
 		            </ul>
 		        </nav>
 		    </div>
 	    </div>
 	</div>
+
+	<div class="container">
+		<div id ="login">		
+			<FORM action="register.php" method="post">
+			<p><h3>Registo de Utlizador</h3></p><br>
+			<p>Username:</p>
+			<INPUT type = "string" name = "username" maxlength = "15" />
+			<p>Password:</p>
+			<INPUT type = "password" name = "pass" maxlength = "16" />
+			<p>Permissão:</p>
+			<INPUT type = "string" name = "permission" maxlength = "6" />
+			<br><br>
+
+			<input type="submit"/>
+			</FORM>
+		</div>
+	</div>
+
 </body>
