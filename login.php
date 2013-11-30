@@ -18,22 +18,22 @@
  		$password = $_POST["Password"];
 
 		echo '<div id="conteudo">';
-		echo '<div class="documentos">';
+		echo '<div class="texto">';
 		
 		if (!$result)
 		{
 			echo "Nome de utilizador não existente!";
-			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+			echo '<br><br> <u><a href="index.html"> Voltar Atrás</a></u>';
 		}
 		else if (!$password)
 		{
 			echo 'Introduza uma palavra passe!';
-			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+			echo '<br><br> <u><a href="index.html"> Voltar Atrás</a></u>';
 		}
 		else if ($result['Password'] != $password)
 		{
 			echo "Palavra passe errada!";
-			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+			echo '<br><br> <u><a href="index.html"> Voltar Atrás</a></u>';
 		}
 		else 
 			echo "LOGGED IN BITCHEZ";

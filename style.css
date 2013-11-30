@@ -73,7 +73,6 @@ body {
 #header li
 {
 	margin: 5px;
-
 }
 
 #header li, #header li a:visited {
@@ -89,7 +88,7 @@ body {
 	padding: 0;
 }
 
-.documentos {
+.texto {
 	padding: 5% 10%;
 	color: #444444;
 	font-size: 11pt;	
@@ -97,15 +96,12 @@ body {
 	float: left;
 }
 
-.documentos h1{
-	margin-left: -10%;
-}
 
-.documentos a:visited{
+.texto a:visited{
 	color: #444444;
 }
 
-.documentos a{
+.texto a{
 	color: #444444;
 }
 
@@ -118,7 +114,7 @@ body {
 #login
 {
 	margin: auto;
-	margin-top: 200px;
+	margin-top: 20%;
 	padding: 50px 100px 50px 100px;
 	text-align: center;
 	color: white;
@@ -136,22 +132,17 @@ body {
 	float: right;	
 	width: 200px;
 	padding-top: 10%;
-	padding-right: 9%;
-	min-height: 700px;
-	
-}
-
-#pesquisas form {
-	padding-right: 0px;
-	margin-right: -60px;
+	padding-right: 12%;
+	min-height: 700px;	
 }
 
 #pesquisas_avancadas {
 	padding-top: 5%;
 	min-height: 30px;
+	padding-left: 10%;
 }
 
-.text{padding-left: 15px; display: none;}
+.hiddenText{padding-left: 15px; display: none;}
 .mostrar {cursor: pointer; padding-left: 15px; text-decoration: underline;}
 .btab{padding-left: 15px;}
 .btab2{padding-left: 30px;}
@@ -159,4 +150,32 @@ body {
 
 button{
 	box-shadow: 2px 2px 1px #888888;
+}
+
+#documents a{
+	color: white;
+}
+
+#documents li{
+	background-color: #222222;
+	padding: 0% 2%;
+	display: inline;
+	border-left: 1px solid white;
+}
+
+#documents li:first-child {
+	border-left: none;
+}
+
+#documents {	
+	visibility: hidden;
+	padding-left: 63%;
+	position: fixed;
+}
+
+#documents ul
+{
+	padding: 10px;
+	background-color: #222222;
+	width: 270px;
 }
