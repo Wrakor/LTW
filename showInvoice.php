@@ -25,7 +25,7 @@
 	<?php 
 	include 'header.html';
  	echo '<div id="conteudo">';
- 	echo '<div class="documentos">';
+ 	echo '<div class="texto">';
  	
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Invoice WHERE InvoiceNo = ?');

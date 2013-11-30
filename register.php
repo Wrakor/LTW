@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <HTML>
 	<HEAD>	
 		<title> Sistema de faturação online </title>
