@@ -7,13 +7,13 @@
 		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" href="style.css">
 		</HEAD>
-
+		<script type="text/javascript" src="open.js"></script>
 <body>
 
 <?php
 	include 'header.html';
   	echo '<div id="conteudo">';
-	echo '<div class="documentos" style="border-right: none;">';
+	echo '<div class="documentos>';
 	$db = new PDO('sqlite:database\documents.db');
 
 	$InvoiceArray = array();

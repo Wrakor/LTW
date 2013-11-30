@@ -32,9 +32,7 @@
 
 <body>
 	<?php 
-	include 'header.html';
-  echo '<div id="conteudo">';
-	echo '<div class="documentos">';
+	include 'header.html';  
 
 	$db = new PDO('sqlite:database/documents.db');
  	$invoices = $db->query('SELECT * FROM Invoice');
@@ -47,6 +45,8 @@
   $data3 = $products->fetchAll();
   $data4 = $customers->fetchAll();
   
+  echo '<div id="conteudo">';
+  echo '<div class="documentos" style="border-right: 1px solid black;">';
   echo '<h1> Listagem sumarizada de Documentos </h1><br>';
 
   echo '<h2> Faturas: </h2>';
@@ -54,9 +54,7 @@
  	foreach ($data as $row) 
   {
     $path = 'showInvoice.php?InvoiceNo=' . $row['InvoiceNo']; 
-    echo '<a href=' . $path . '> ';
-
- 
+    echo '<a href=' . $path . '> '; 
   
   	echo '<h3 class="btab">' . '- ' . $row['InvoiceNo'] . '</h3><a>'; 
   	
@@ -94,12 +92,11 @@
   {  
     $path = 'showProduct.php?ProductCode=' . $row['ProductCode']; 
     echo '<a href=' . $path . '> ';
-    echo '<h3 class="btab">' . '- ' . $row['ProductCode'] . '</h3></a>'; 
+    echo '<h3 class="btab"></td><td>' . '- ' . $row['ProductCode'] . '</h3></a>'; 
 
-    echo '<div class="btab">' . '<b>Descrição: </b>' . $row['ProductDescription'] . '<br></div>';  
-
-    echo '<div class="text"> <b>Preço Unitário: </b>' . $row['UnitPrice'] . '</br>'; 
-    echo '<b>Unidade de medida: </b>' . $row['UnitOfMeasure'] . '</br>';    
+    echo '<div class="btab"><table border="1"> <tr><td>' . '<b>Descrição: </b>' . $row['ProductDescription'] . '</td></tr></table><br></div>';  
+    echo '<div class="text"><table border="1"> <tr><td><b>Preço Unitário: </b></td><td>' . $row['UnitPrice'] . '</tr></td>'; 
+    echo '<tr><td><b>Unidade de medida: </b></td><td>' . $row['UnitOfMeasure'] . '</tr></td></table>';    
     echo '</div>'; 
     echo '<h4 class="mostrar"> Ver mais </h4><br>'; 
   }
@@ -112,16 +109,16 @@
     echo '<a href=' . $path . '>';
     echo '<h3 class="btab">' . '- ' . $row['CustomerID'] . '</h3></a>'; 
 
-    echo '<div class="btab">' . '<b>Número de Contribuinte: </b>' .$row['CustomerTaxID'] . '<br>';  
-    echo '<b> Nome do Cliente: </b>'  . $row['CompanyName'] . '<br></div>';  
+    echo '<div class="btab"><table border="1"><tr><td>' . '<b>Número de Contribuinte: </b></td><td>' .$row['CustomerTaxID'] . '</tr></td>';  
+    echo '<tr><td><b> Nome do Cliente: </b></td><td>'  . $row['CompanyName'] . '</tr></td></table></div>';  
 
-    echo '<div class="text">';
-    echo '<b>Dados de Morada: </b><br>';
-    echo '<b class="btab"> Rua ou Avenida: </b>' . $row['AdressDetail'] . '<br>';
-    echo '<b class="btab"> Cidade: </b>' . $row['City'] . '<br>';
-    echo '<b class="btab"> Código Postal: </b>' . $row['PostalCode'] . '<br>';
-    echo '<b class="btab"> Código do País: </b>' . $row['Country'] . '<br>';
-    echo '<b>E-mail: </b>' . $row['Email'] . '<br>';
+    echo '<div class="text"><table border="1">';
+    echo '<tr><td><b>Dados de Morada: </b><br></tr></td>';
+    echo '<tr><td><b class="btab"> Rua ou Avenida: </b></td><td>' . $row['AdressDetail'] . '</tr></td>';
+    echo '<tr><td><b class="btab"> Cidade: </b></td><td>' . $row['City'] . '</tr></td>';
+    echo '<tr><td><b class="btab"> Código Postal: </b></td><td>' . $row['PostalCode'] . '</tr></td>';
+    echo '<tr><td><b class="btab"> Código do País: </b></td><td>' . $row['Country'] . '</tr></td>';
+    echo '<tr><td><b>E-mail: </b></td><td>' . $row['Email'] . '</tr></td></table>';
 
     echo '</div>';
     echo '<h4 class="mostrar"> Ver mais </h4><br>'; 

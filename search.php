@@ -17,7 +17,6 @@
 		                <li><a href="index.html"> <img src="images/home-white.png" width="15" height="15" /> Home </a></li>
 		                <li><a href="checkDocuments.php"> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
 		                <li><a href="search.php"> <img src="images/search-white.png" width="15" height="15" /> Pesquisa Avançada </a></li>
-		                 <li><a href="register.html"> Registar </a></li>
 		            </ul>
 		        </nav>
 		    </div>
@@ -25,7 +24,7 @@
 	</div>
 
 	<div id="conteudo">
-	<div class="documentos" style="border-right: none;">
+	<div class="documentos">
 	<div id ="pesquisas_avancadas">
 		<?php
 

@@ -4,7 +4,7 @@
 	<HEAD>	
 		<title> Sistema de faturação online </title>
 		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" href="../style.css">
+		<link rel="stylesheet" href="style.css">
 		<script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script type='text/javascript'>
 		$(document).ready(function()
@@ -72,6 +72,7 @@
 			});
 		});
 		</script>
+
 	</HEAD>
 
 	<BODY>

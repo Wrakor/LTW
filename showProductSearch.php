@@ -11,8 +11,8 @@
 <?php
 	include 'header.html';
   	echo '<div id="conteudo">';
-	echo '<div class="documentos" style="border-right: none;">';
-	$db = new PDO('sqlite:..\database\documents.db');
+	echo '<div class="documentos">';
+	$db = new PDO('sqlite:database\documents.db');
 
 	$InvoiceArray = array();
 

@@ -10,7 +10,7 @@
 	<?php 
 	include 'header.html';
  	echo '<div id="conteudo">';
- 	echo '<div class="documentos" style="border-right: none;">';
+ 	echo '<div class="documentos">';
  	
 	$db = new PDO('sqlite:database/documents.db');
  	$stmt = $db->prepare('SELECT * FROM Product WHERE ProductCode = ?');
@@ -21,12 +21,11 @@
    		echo 'Não foram encontrados produtos com código ' . $_GET['ProductCode'] . '!';
    	else
    	{
-	   	echo '<h3 class="btab">' . '- ' . $row['ProductCode'] . '</h3>'; 
+		echo '<div class="btab"><table border="1"><tr><td>' . '<b>Código:</b></td><td>' . $row['ProductCode'] . '</td></tr>'; 
 
-	    echo '<div class="btab">' . '<b>Descrição: </b>' . $row['ProductDescription'] . '<br></div>';  
-
-	    echo '<div style="padding-left: 15px;"> <b>Preço Unitário: </b>' . $row['UnitPrice'] . '</br>'; 
-	    echo '<b>Unidade de medida: </b>' . $row['UnitOfMeasure'] . '</br></div>';
+	    echo ' <tr><td>' . '<b>Descrição: </b></td><td>' . $row['ProductDescription'] . '</td></tr>';  
+	    echo '<tr><td><b>Preço Unitário: </b></td><td>' . $row['UnitPrice'] . '</tr></td>'; 
+	    echo '<tr><td><b>Unidade de medida: </b></td><td>' . $row['UnitOfMeasure'] . '</tr></td></table></div>';  
 	}	
     ?>
     </div>

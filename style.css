@@ -95,7 +95,6 @@ body {
 	font-size: 11pt;	
 	max-width: 500px;
 	float: left;
-	border-right: 1px solid black;
 }
 
 .documentos h1{
@@ -116,15 +115,16 @@ body {
 	text-align: justify;
 }
 
-#login 
+#login
 {
 	margin: auto;
 	margin-top: 200px;
 	padding: 50px 100px 50px 100px;
-	background-color:  #222222;
 	text-align: center;
 	color: white;
 }
+
+#login a {color: white;}
 
 .container
 {
@@ -138,6 +138,7 @@ body {
 	padding-top: 10%;
 	padding-right: 9%;
 	min-height: 700px;
+	
 }
 
 #pesquisas form {

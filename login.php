@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<HTML>
-	<HEAD>	
-		<title> Sistema de faturação online </title>
-		<META http-equiv="Content-Type" content="text/html; charset=utf-8">		
-	</HEAD>
 
-	<BODY>	
-		<?php
-			include 'header.html';
- 			echo '<div id="login_verification" style="border-right: none;">';
+<head>
+	<title> Sistema de Faturação </title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="style.css">
+</head>
 
-			$User_name = $_POST["username"];
-			$User_password = $_POST["pass"];
+</body>
+	<?php
+		include 'header.html';
 
-			$db = new PDO('sqlite:database/users.db');
-		 	$users = $db->query('SELECT * FROM User');
-		 	$data = $users->fetchAll();
-		 	$user_registered = false;
+		$db = new PDO('sqlite:database/users.db');
+ 		$data = $db->query('SELECT * FROM User WHERE Name = ?');
+ 		$data->execute(array($_POST["Name"]));
+ 		$result = $data->fetch();
 
-		 	foreach ($data as $row) 
-		    {	
-				if($row['Name']==$User_name) {
-					$user_registered = true;
-				  	$password = $row['Password'];
-				}	
-		  	}
+ 		$password = $_POST["Password"];
 
-		  	if(!$user_registered) {
-		  		echo '<h2>Usuário não registado</h2>';
-		  	}
-		  	else if($User_password != $password) {
-		  		echo '<h2>Password incorreta</h2>';
-		  	}
-		  	else {
-		  		echo '<h2>Login com sucesso</h2>';
-		  	}
-		?>	
+		echo '<div id="conteudo">';
+		echo '<div class="documentos">';
 		
-		<a href="index.html"> Voltar ao Inicio</a>
+		if (!$result)
+		{
+			echo "Nome de utilizador não existente!";
+			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+		}
+		else if (!$password)
+		{
+			echo 'Introduza uma palavra passe!';
+			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+		}
+		else if ($result['Password'] != $password)
+		{
+			echo "Palavra passe errada!";
+			echo '<br> <a href="index.html"> Voltar Atrás</a>';
+		}
+		else 
+			echo "LOGGED IN BITCHEZ";
 
 
-	</BODY>		
-</HTML>
+
+
+		echo '</div></div>';
+		?>
+
+</body>
