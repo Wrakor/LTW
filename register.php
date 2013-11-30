@@ -11,7 +11,7 @@
 
 			$User_name = $_POST["username"];
 			$User_password = $_POST["pass"];
-			$Permission = $_POST["permission"];
+
 			$encrypted_pass = hash("sha512", $User_password);
 			$db = new PDO('sqlite:database/users.db');
 			$selectUsers = $db->query("SELECT * FROM User");
@@ -26,10 +26,9 @@
 			
 			//Se user nao registado, adiciona
 			if($User_exists==FALSE) {
-				$queryInsert= $db->prepare("INSERT INTO User(Name,Password,Permission) VALUES (:name,:pass,:perm)");
+				$queryInsert= $db->prepare("INSERT INTO User(Name,Password) VALUES (:name,:pass)");
 				$queryInsert->bindParam(':name',$User_name,PDO::PARAM_STR);
 				$queryInsert->bindParam(':pass',$encrypted_pass,PDO::PARAM_STR);
-				$queryInsert->bindParam(':perm',$Permission,PDO::PARAM_STR);
 				$queryInsert->execute();
 
 				echo '<div id="login">
