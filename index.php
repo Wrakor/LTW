@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <head>
@@ -16,14 +17,14 @@
       			else 
       				$('#documents').css('visibility', 'hidden');
       			e.preventDefault();
-      			});
+      		});
 		});
     </script>
 </head>
 
 <body>
-	<div id="header">
-	    <div id="header-contents">
+<div id="header">
+		<div id="header-contents">
 		    <div id ="title">
 		    	<h2>Sistema de Faturação</h2>
 		    </div>
@@ -38,12 +39,52 @@
 		    </div>
 	    </div>
 	</div>
-
-	<div id="documents" style="padding-top: 3%;">
+	<div id="documents" style="margin-top: -11.5%;">
 		<ul>
 		  <li><a href="checkInvoices.php"> Faturas </a></li>
 		  <li><a href="checkProducts.php"> Produtos e Serviços </a></li>
 		  <li><a href="checkCustomers.php"> Clientes </a></li>
 		</ul>
 	</div>
+
+	<?php
+	//session_start();
+
+	if (!isset($_SESSION['username']))
+	{
+		echo '
+		<div class="container">
+			<div id ="login">		
+				<FORM action="login.php" method="post">
+				<p><h3>Login</h3></p><br>
+				<p>Username:</p>
+				<INPUT type = "string" name = "Name" maxlength = "15" />
+				<p>Password:</p>
+				<INPUT type = "password" name = "Password" maxlength = "16" />
+				<br><br>
+				<input type="submit"/>
+				</FORM> <br><br>
+				<p><u><h4><a href="register.html"> Registar</a></h2></u></p>
+			</div>
+		</div>
+		';
+	}	
+	else
+	{
+		if ($_SESSION['permission'] == "reader")
+			$permission = "ler documentos";
+		else if ($_SESSION['permission'] == "writer")
+			$permission = "ler e criar/editar documentos";
+		else if ($_SESSION['permission'] == "admin")
+			$permission = "gerir utilizadores existentes, além de ler e criar/editar documentos";
+
+		echo '<div id="conteudo">';
+  		echo '<div class="texto">';
+		echo $_SESSION['username'] . ', você tem permissões para ' . $permission . '.<br><br>';
+		echo '<button><a href="logout.php" style="color: black;"> Logout </a></button>';
+		echo '</div></div>';
+
+	}
+
+	?>
 </body>

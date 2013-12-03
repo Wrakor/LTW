@@ -11,7 +11,7 @@ d<!DOCTYPE html>
 
 			$User_name = $_POST["username"];
 			$User_password = $_POST["pass"];
-
+			$permission ="reader";
 			$encrypted_pass = hash("sha512", $User_password);
 			$db = new PDO('sqlite:database/users.db');
 			$selectUsers = $db->query("SELECT * FROM User");
@@ -26,20 +26,21 @@ d<!DOCTYPE html>
 			
 			//Se user nao registado, adiciona
 			if($User_exists==FALSE) {
-				$queryInsert= $db->prepare("INSERT INTO User(Name,Password) VALUES (:name,:pass)");
+				$queryInsert= $db->prepare("INSERT INTO User(Name,Password, Permission) VALUES (:name,:pass,:permission)");
 				$queryInsert->bindParam(':name',$User_name,PDO::PARAM_STR);
 				$queryInsert->bindParam(':pass',$encrypted_pass,PDO::PARAM_STR);
+				$queryInsert->bindParam(':permission',$permission,PDO::PARAM_STR);
 				$queryInsert->execute();
 
 				echo '<div id="login">
-		  					<p style= "color: white"> Registado </p>
-		  					<a href="index.html"> <img src="images/home-white.png" width="15" height="15" /> Home </a>
+		  					<p style= "color: white"> Utilizador registado! </p>
+		  					<a href="index.php"> <u> Voltar atrás <u></a>
 					   </div>';
 			}
 			else {
 				echo '<div id="login">
-		  			 	    <p style= "color: white"> Username ja existente </p>
-		  					<a href="register.html"> Tentar novamente </a>
+		  			 	    <p style= "color: white"> Username já existente! </p>
+		  					<a href="register.html"> <u>Tentar novamente. </u></a>
 					  </div>';
 			}
 		?>	
