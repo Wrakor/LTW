@@ -38,14 +38,15 @@
 		        </nav>
 		    </div>
 	    </div>
-	</div>
-	<div id="documents" style="margin-top: -11.5%;">
+	    <div id="documents">
 		<ul>
 		  <li><a href="checkInvoices.php"> Faturas </a></li>
 		  <li><a href="checkProducts.php"> Produtos e Serviços </a></li>
 		  <li><a href="checkCustomers.php"> Clientes </a></li>
 		</ul>
 	</div>
+	</div>
+	
 
 	<?php
 	//session_start();
@@ -79,7 +80,7 @@
 			$permission = "gerir utilizadores existentes, além de ler e criar/editar documentos";
 
 		echo '<div id="conteudo">';
-  		echo '<div class="texto">';
+  		echo '<div class="texto" style="padding-top: 8%">';
 		echo $_SESSION['username'] . ', você tem permissões para ' . $permission . '.<br><br>';
 		echo '<button><a href="logout.php" style="color: black;"> Logout </a></button>';
 		echo '</div></div>';

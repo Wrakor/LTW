@@ -167,10 +167,11 @@ button{
 	border-left: none;
 }
 
-#documents {	
+#header #documents {	
 	visibility: hidden;
 	padding-left: 63%;
 	position: fixed;
+	margin-top: 10px;
 }
 
 #documents ul
