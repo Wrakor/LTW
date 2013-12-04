@@ -23,7 +23,7 @@
 
 <body>
 	<?php 
-	include 'header.html';
+	include 'header.php';
  	echo '<div id="conteudo">';
  	echo '<div class="texto">';
  	

@@ -45,7 +45,7 @@
 		  <li><a href="checkCustomers.php"> Clientes </a></li>
 		</ul>
 	</div>
-	</div>
+</div>
 	
 
 	<?php
@@ -73,11 +73,11 @@
 	else
 	{
 		if ($_SESSION['permission'] == "reader")
-			$permission = "ler documentos";
+			$permission = "consultar documentos";
 		else if ($_SESSION['permission'] == "writer")
-			$permission = "ler e criar/editar documentos";
+			$permission = "consultar e criar/editar documentos";
 		else if ($_SESSION['permission'] == "admin")
-			$permission = "gerir utilizadores existentes, além de ler e criar/editar documentos";
+			$permission = "gerir utilizadores existentes, além de poder consultar e criar/editar documentos";
 
 		echo '<div id="conteudo">';
   		echo '<div class="texto" style="padding-top: 8%">';

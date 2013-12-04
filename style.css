@@ -19,6 +19,8 @@ a {
 body {
 	/*background: red;*/
 	background-image: url('images/grey-background.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	font-family: 'Calibri',sans-serif;
 }
 

@@ -7,7 +7,7 @@ d<!DOCTYPE html>
 
 	<BODY>	
 		<?php
-			include 'header.html';
+			include 'header.php';
 
 			$User_name = $_POST["username"];
 			$User_password = $_POST["pass"];

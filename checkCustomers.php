@@ -32,7 +32,7 @@
 
 <body>
 	<?php 
-	include 'header.html';  
+	include 'header.php';  
 
   $db = new PDO('sqlite:database/documents.db');
   $customers = $db->query('SELECT * FROM Customer');

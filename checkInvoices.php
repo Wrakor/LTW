@@ -32,7 +32,7 @@
 
 <body>
 	<?php 
-	include 'header.html';  
+	include 'header.php';  
 
 	$db = new PDO('sqlite:database/documents.db');
  	$invoices = $db->query('SELECT * FROM Invoice');

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <head>
@@ -45,4 +46,14 @@
 		</ul>
 	</div>
 	</div>
+
+	<?php
+	if (!isset($_SESSION['username']))
+	{
+		echo '<div id="conteudo">';
+  		echo '<div class="texto" style="max-width: 100%">';
+  		echo 'Não tem permissões para aceder a esta página! Aceda à Página Inicial para se registar ou fazer login. </div></div>';
+		exit();
+	}
+	?>
 </body>

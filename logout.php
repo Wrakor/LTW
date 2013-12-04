@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 
 <head>
@@ -14,7 +13,7 @@
 	</div>
 </div>
 	<?php
-		include 'header.html';
+		include 'header.php';
 		session_destroy();
 		?>
 </body>
