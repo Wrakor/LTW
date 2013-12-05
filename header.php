@@ -6,8 +6,10 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
+</head>
 
+<body>
+	<script>
 	$(document).ready(function(){
  	 		$("#consultar").click(function(e) {
       			if ($('#documents').css('visibility') == 'hidden')
@@ -20,9 +22,6 @@
       			});
 		});
     </script>
-</head>
-
-<body>
 	<div id="header">
 		<div id="header-contents">
 		    <div id ="title">
@@ -56,4 +55,3 @@
 		exit();
 	}
 	?>
-</body>

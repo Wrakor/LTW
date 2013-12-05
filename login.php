@@ -47,29 +47,26 @@
 		
 		if (!$result)
 		{
-			echo "Nome de utilizador não existente!";
-			echo '<br><br> <u><a href="index.php"> Voltar Atrás</a></u>';
+			echo "Nome de utilizador não existente!";			
 		}
 		else if (!$password)
 		{
 			echo 'Introduza uma palavra passe!';
-			echo '<br><br> <u><a href="index.php"> Voltar Atrás</a></u>';
 		}
 		else if ($result['Password'] != $encryptedPassword)
 		{
 			echo "Palavra passe errada!";
-			echo '<br><br> <u><a href="index.php"> Voltar Atrás</a></u>';
 		}
 		else 
 		{
 			echo "Bem vindo, " . $username . "!";
-			echo '<br><br> <u><a href="index.php"> Voltar Atrás</a></u>';
 
 			//session_start();
 			$_SESSION['username'] = $username;
 			$_SESSION['permission'] = $result['Permission'];
 		}
 
+		echo '<br><br> <u><a href="index.php"> Ir para a Página Inicial </a></u>';
 		echo '</div></div>';
 		?>
 

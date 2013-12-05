@@ -1,38 +1,29 @@
-<!DOCTYPE html>
+<?php include 'header.php';  ?>
 
-<head>
-	<title> Sistema de faturação online </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
+<style type="text/css">   
+   p{ display:none;} 
+</style>
 
-	<style type="text/css">   
-     p{ display:none;} 
-	</style>
+<script>
+  $(document).ready(function(){
+    $(".mostrar").click(function(e) {
+          $(this).prev('.hiddenText').slideToggle("slow");
+          var text = $(this).text();
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
- 	 		$(".mostrar").click(function(e) {
-      			$(this).prev('.hiddenText').slideToggle("slow");
-            var text = $(this).text();
+          if (text == " Ver mais ")
+          {
+            $(this).text(' Ver menos ');
+          }
+          else
+          {
+            $(this).text(' Ver mais ');
+          }
+          e.preventDefault();
+        });
+  });
+</script>
 
-            if (text == " Ver mais ")
-            {
-              $(this).text(' Ver menos ');
-            }
-            else
-            {
-              $(this).text(' Ver mais ');
-            }
-      			e.preventDefault();
-      		});
-		});
-	</script>
-</head>
-
-<body>
-	<?php 
-	include 'header.php';  
+<?php 
 
   $db = new PDO('sqlite:database/documents.db');
   $customers = $db->query('SELECT * FROM Customer');

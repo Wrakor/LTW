@@ -1,19 +1,11 @@
-<!DOCTYPE html>
+<?php include 'header.php';  ?>
 
-<head>
-	<title> Sistema de Faturação </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
-</head>
-
-</body>
 <div id="conteudo">
 	<div class="texto">
-	<div>Logout efectuado!</div>
-	</div>
+	Logout efectuado! <br><br>
+	<u><a href="index.php"> Voltar à Página Inicial</a></u></div>
 </div>
-	<?php
-		include 'header.php';
-		session_destroy();
-		?>
+<?php
+	session_destroy();
+?>
 </body>

@@ -48,7 +48,7 @@
 	<?php
 		$User_name = $_POST["username"];
 		$User_password = $_POST["pass"];
-		$permission ="reader";
+		$permission ="admin";
 		$encrypted_pass = hash("sha512", $User_password);
 		$db = new PDO('sqlite:database/users.db');
 		$selectUsers = $db->query("SELECT * FROM User");
@@ -71,7 +71,7 @@
 
 			echo '<div id="login">
 	  					<p style= "color: white"> Utilizador registado! </p>
-	  					<a href="index.php"> <u> Voltar atrás <u></a>
+	  					<a href="index.php"> <u> Voltar à Página Inicial <u></a>
 				   </div>';
 		}
 		else {

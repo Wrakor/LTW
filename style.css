@@ -85,6 +85,10 @@ body {
 	padding-left: 5px;
 }
 
+#header li a {
+	color: white;
+}
+
 #header li:first-child {
 	border-left: 0;
 	padding: 0;

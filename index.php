@@ -80,9 +80,15 @@
 			$permission = "gerir utilizadores existentes, além de poder consultar e criar/editar documentos";
 
 		echo '<div id="conteudo">';
-  		echo '<div class="texto" style="padding-top: 8%">';
+  		echo '<div class="texto" style="padding-top: 8%; max-width: 1080px">';
 		echo $_SESSION['username'] . ', você tem permissões para ' . $permission . '.<br><br>';
-		echo '<button><a href="logout.php" style="color: black;"> Logout </a></button>';
+
+		if ($_SESSION['permission'] == "admin")
+		{
+			echo '<button><a href="manageUsers.php"> Gerir Utilizadores </a></button><br><br>';
+		}
+
+		echo '<button><a href="logout.php"> Logout </a></button>';
 		echo '</div></div>';
 
 	}

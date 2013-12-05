@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-
-<HTML>
-	<HEAD>	
-		<title> Sistema de faturação online </title>
-		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet" href="style.css">
-		</HEAD>
-
-<body>
 <?php
 	include 'header.php';
   	echo '<div id="conteudo">';
 	echo '<div class="texto">';
-	$db = new PDO('sqlite:database\documents.db');
+	$db = new PDO('sqlite:database/documents.db');
 
 	$InvoiceArray = array();
 

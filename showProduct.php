@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-
-<head>
-	<title> Sistema de faturação online </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-	<?php 
+<?php 
 	include 'header.php';
  	echo '<div id="conteudo">';
  	echo '<div class="texto">';
@@ -27,7 +18,7 @@
 	    echo '<tr><td><b>Preço Unitário: </b></td><td>' . $row['UnitPrice'] . '</tr></td>'; 
 	    echo '<tr><td><b>Unidade de medida: </b></td><td>' . $row['UnitOfMeasure'] . '</tr></td></table></div>';  
 	}	
-    ?>
-    </div>
-  </div>
+?>
+</div>
+</div>
 </body>

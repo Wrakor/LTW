@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-
-<head>
-	<title> Sistema de faturação online </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-	<?php 
+<?php 
 	include 'header.php';
  	echo '<div id="conteudo">';
  	echo '<div class="texto" style="border-right: none;">';
@@ -33,8 +24,8 @@
     echo '<tr><td><b class="btab"> Código Postal: </b></td><td>' . $row['PostalCode'] . '</tr></td>';
     echo '<tr><td><b class="btab"> Código do País: </b></td><td>' . $row['Country'] . '</tr></td>';
     echo '<tr><td><b>E-mail: </b></td><td>' . $row['Email'] . '</tr></td></table>';
-}
-	?>
-	</div>
-	</div>
+  }
+?>
+</div>
+</div>
 </body>

@@ -1,16 +1,6 @@
-<!DOCTYPE html>
+<?php include 'header.php';  ?>
 
-<head>
-	<title> Sistema de faturação online </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
-
-	<style type="text/css">   
-     p{ display:none;} 
-	</style>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
+<script>
 		$(document).ready(function(){
  	 		$(".mostrar").click(function(e) {
       			$(this).prev('.hiddenText').slideToggle("slow");
@@ -28,11 +18,8 @@
       		});
 		});
 	</script>
-</head>
 
-<body>
 	<?php 
-	include 'header.php';  
 
 	$db = new PDO('sqlite:database/documents.db');
  	$invoices = $db->query('SELECT * FROM Invoice');

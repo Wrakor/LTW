@@ -1,29 +1,21 @@
-<!DOCTYPE html>
+<?php include 'header.php'; ?>
 
-<head>
-	<title> Sistema de faturação online </title>
-	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="style.css">
-	<style type="text/css">
-		@media print {
-		    div#header {display: none;}
-			div#menu {display: none;}
-			button {display:none;}
+<style type="text/css">
+	@media print {
+	    div#header {display: none;}
+		div#menu {display: none;}
+		button {display:none;}
 	}
-	</style>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
+</style>
+<script>
 	$(document).ready(function(){
  	 		$("button").click(function(e) {
  	 			window.print();
  	 		});
  	 	});
-	</script>
-</head>
+</script>
 
-<body>
-	<?php 
-	include 'header.php';
+<?php 
  	echo '<div id="conteudo">';
  	echo '<div class="texto">';
  	

@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<head>
-	<title> Sistema de Faturação </title>
-	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="style.css">
-</head>
+<?php
+	include 'header.php';
 
-<body>
-	
-		<?php
-		include 'header.php';
+	echo '<div id="conteudo">';
+	echo '<div class="texto">';
+	echo '<div id ="pesquisas_avancadas">';
 
-		echo '<div id="conteudo">';
-		echo '<div class="texto">';
-		echo '<div id ="pesquisas_avancadas">';
-		
-		echo '<h2> Faturas: </h2> <br>'; 
-		include "searchInvoicesByField.php";		
-		echo '<br>';
-		echo '<h2> Clientes: </h2> <br>';
-		include "searchCustomersByField.php";
-		echo '<br>';
-		echo '<h2> Produtos: </h2> <br>';
-		include "searchProductsByField.php";
-		echo '<br></div>';
-		?>
+	echo '<h2> Faturas: </h2> <br>'; 
+	include "searchInvoicesByField.php";		
+	echo '<br>';
+	echo '<h2> Clientes: </h2> <br>';
+	include "searchCustomersByField.php";
+	echo '<br>';
+	echo '<h2> Produtos: </h2> <br>';
+	include "searchProductsByField.php";
+	echo '<br></div>';
+?>
 	</div>
 	</div>
-	</body>
+</body>
 </html>
