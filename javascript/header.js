@@ -1,11 +1,21 @@
 $(document).ready(function(){
- 	 		$("#consultar").click(function(e) {
-      			if ($('#documents').css('visibility') == 'hidden')
+ 	 		$("#check").click(function(e) {
+      			if ($('#checkDocuments').css('visibility') == 'hidden')
       			{
-      				$('#documents').css('visibility', 'visible');
+      				$('#checkDocuments').css('visibility', 'visible');
       			}
       			else 
-      				$('#documents').css('visibility', 'hidden');
+      				$('#checkDocuments').css('visibility', 'hidden');
+      			e.preventDefault();
+      			});
+
+ 	 		$("#create").click(function(e) {
+      			if ($('#createDocuments').css('visibility') == 'hidden')
+      			{
+      				$('#createDocuments').css('visibility', 'visible');
+      			}
+      			else 
+      				$('#createDocuments').css('visibility', 'hidden');
       			e.preventDefault();
       			});
 		});

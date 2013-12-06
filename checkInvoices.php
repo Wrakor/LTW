@@ -17,9 +17,9 @@
       			e.preventDefault();
       		});
 		});
-	</script>
+</script>
 
-	<?php 
+<?php 
 
 	$db = new PDO('sqlite:database/documents.db');
  	$invoices = $db->query('SELECT * FROM Invoice');
@@ -67,15 +67,15 @@
 		echo '</div>'; 
 		echo '<h4 class="mostrar"> Ver mais </h4><br>';    
 	} 
-	?>
-	</div>
+?>
+</div>
 	  <div id="pesquisas" class="texto">
 	    <form action="showInvoice.php" method="get">
 	    Pesquisar Faturas por ID: <br>
 	    <input type = "text" name = "InvoiceNo" maxlength = "30" />
 	    <input type="submit"/>
 	    </form><br>
-	</div>  
+</div>  
 	
-	</div>  
+</div>  
 </body>
