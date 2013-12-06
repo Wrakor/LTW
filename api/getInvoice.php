@@ -1,60 +1,52 @@
-<!DOCTYPE html>
-<HTML>
-	<HEAD>	
-		<title> Sistema de faturação online </title>
-		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
-	</HEAD>
-
-	<BODY>
-		<?php
-			$numFat = $_GET["InvoiceNo"];
+<?php			
 				
-			$db = new PDO('sqlite:../database/documents.db');
-		 	$invoices = $db->query('SELECT * FROM Invoice');
-		 	$invoices_lines = $db->query('SELECT * FROM Line');
+				$numFat = $_GET["InvoiceNo"];
+				$db = new PDO('sqlite:../database/documents.db');
+			 	$invoices = $db->query('SELECT * FROM Invoice');
+			 	$invoices_lines = $db->query('SELECT * FROM Line');
 
-		 	$data = $invoices->fetchAll();
-		 	$data2 = $invoices_lines->fetchAll();
-		  
-		 	foreach ($data as $row) 
-		  	{
+			 	$data = $invoices->fetchAll();
+			 	$data2 = $invoices_lines->fetchAll();
+			  
+			 	foreach ($data as $row) 
+			  	{
 
-				if($row['InvoiceNo']==$numFat) { 
-		  			$array2 = array();
-		  			
-					foreach ($data2 as $row2)
-				  	{
-				  		if ($row['id'] == $row2['idInvoice'])
-				  		{							
-					    	$lineArr = array('Linha numero' => $row2['LineNumber'], 
-					    		'Codigo do ProdutoServico' => $row2['ProductCode'], 
-					    		'Numero de unidades vendidas' => $row2['Quantity'], 
-					    		'Preco unitario' => $row2['UnitPrice'], 'Total' => $row2['CreditAmount'], 
-					    		'Tipo de Taxa' => $row2['TaxType'], 
-					    		'Percentagem da Taxa' => $row2['TaxPercentage']);
+					if($row['InvoiceNo']==$numFat) { 
+			  			$array2 = array();
+			  			
+						foreach ($data2 as $row2)
+					  	{
+					  		if ($row['id'] == $row2['idInvoice'])
+					  		{							
+						    	$lineArr = array('LineNumber' => $row2['LineNumber'], 
+						    		'ProductCode' => $row2['ProductCode'], 
+						    		'Quantity' => $row2['Quantity'], 
+						    		'UnitPrice' => $row2['UnitPrice'], 'CreditAmount' => $row2['CreditAmount'], 
+						    		'Tax' => array('TaxType' => $row2['TaxType'], 
+						    		'TaxPercentage' => $row2['TaxPercentage']));
+						    		
 
-					    	array_push($array2,$lineArr);									    	
-				  		}
-				 
-				  	}
+						    	array_push($array2,$lineArr);									    	
+					  		}
+					 
+					  	}
 
-				  	$array1 = array('InvoiceNo' => $row['InvoiceNo'], 'Data' => $row['InvoiceDate'], 'ID de Cliente'=> $row['CustomerID'],'Line: ' => $array2);
-				
-				    $array3= array( 'Total Documento' => array('Total de Imposto' => $row['TaxPayable'], 
-				    				  'Total sem Imposto' => $row['NetTotal'],
-				    				  'Total' => $row['GrossTotal']));
+					  	$array1 = array('InvoiceNo' => $row['InvoiceNo'], 'InvoiceDate' => $row['InvoiceDate'], 'CustomerID'=> $row['CustomerID'],'Line' => $array2);
+					
+					    $array3= array( 'DocumentTotals' => array('TaxPayable' => $row['TaxPayable'], 
+					    				  'NetTotal' => $row['NetTotal'],
+					    				  'GrossTotal' => $row['GrossTotal']));
 
-				    $merge = array_merge($array1,$array3);
-				    $json_array = json_encode($merge);
+					    $merge = array_merge($array1,$array3);
+					    $json_array = json_encode($merge);
+					   header('Content-type: application/json; charset=utf-8');
+					   echo $json_array;						   
+					}
+			  }
 
-				   echo $json_array;						   
-				}
-		  }
-
-		   if(empty($json_array)) {
-		  	echo json_encode(array('error'=> array('code' => 404,'reason'=>'Invoice not found')));
-		  }
-
+			   if(empty($json_array)) {
+			   	header('Content-type: application/json; charset=utf-8');
+			  	echo json_encode(array('error'=> array('code' => 404,'reason'=>'Invoice not found')));
+			  }
+		
 		?>	
-	</BODY>		
-</HTML>
