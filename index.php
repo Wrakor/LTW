@@ -6,20 +6,7 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-
-	$(document).ready(function(){
- 	 		$("#consultar").click(function(e) {
-      			if ($('#documents').css('visibility') == 'hidden')
-      			{
-      				$('#documents').css('visibility', 'visible');
-      			}
-      			else 
-      				$('#documents').css('visibility', 'hidden');
-      			e.preventDefault();
-      		});
-		});
-    </script>
+	<script src="javascript/header.js"></script>
 </head>
 
 <body>

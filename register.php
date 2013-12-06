@@ -5,20 +5,7 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-
-	$(document).ready(function(){
- 	 		$("#consultar").click(function(e) {
-      			if ($('#documents').css('visibility') == 'hidden')
-      			{
-      				$('#documents').css('visibility', 'visible');
-      			}
-      			else 
-      				$('#documents').css('visibility', 'hidden');
-      			e.preventDefault();
-      		});
-		});
-    </script>
+	<script src="javascript/header.js"></script>
 </head>
 
 <body>	
@@ -48,7 +35,7 @@
 	<?php
 		$User_name = $_POST["username"];
 		$User_password = $_POST["pass"];
-		$permission ="admin";
+		$permission ="reader";
 		$encrypted_pass = hash("sha512", $User_password);
 		$db = new PDO('sqlite:database/users.db');
 		$selectUsers = $db->query("SELECT * FROM User");
