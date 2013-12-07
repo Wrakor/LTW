@@ -1,23 +1,7 @@
 <?php include 'header.php';  ?>
 
-<script>
-		$(document).ready(function(){
- 	 		$(".mostrar").click(function(e) {
-      			$(this).prev('.hiddenText').slideToggle("slow");
-            var text = $(this).text();
-
-            if (text == " Ver mais ")
-            {
-              $(this).text(' Ver menos ');
-            }
-            else
-            {
-              $(this).text(' Ver mais ');
-            }
-      			e.preventDefault();
-      		});
-		});
-</script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="javascript/checkDocuments.js"></script>
 
 <?php 
 
