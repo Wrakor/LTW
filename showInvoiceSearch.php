@@ -2,7 +2,7 @@
 	include 'header.php';
   	echo '<div id="conteudo">';
 	echo '<div class="texto">';
-		$db = new PDO('sqlite:database/documents.db');
+	$db = new PDO('sqlite:database/documents.db');
 
 	$InvoiceArray = array();
 
