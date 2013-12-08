@@ -3,15 +3,12 @@
 		$numFat = 20355; 
 			
 		$InvoiceNotFound = json_encode(array('error'=> array('code' => 404,'reason'=>'Invoice not found')));
-		$url = "http://localhost/LTW/api/getInvoice.php?InvoiceNo=" . $numFat;
-
+		$url = "http://gnomo.fe.up.pt/~ei09138/LTW/api/getInvoice.php?InvoiceNo=" . $numFat;
 		$json = file_get_contents($url,TRUE);
-	/*	echo $json;
-		echo var_dump(json_decode($json));*/
+
 
 		$jsonDecoded = json_decode($json,true);
 
-		//echo $jsonDecoded['InvoiceNo'];
 
 		if($json == $InvoiceNotFound) {
 			  	echo $InvoiceNotFound;
@@ -27,16 +24,6 @@
 			$GrossTotal = $jsonDecoded['DocumentTotals']['GrossTotal'];
 			$lines = array();
 
-			//Todos os valores de todas as linhas
-	/*		foreach ($lineArray as $line) {
-				echo var_dump($line);
-					$lineTemp = array();
-					foreach ($line as $key => $value) {	
-						array_push($lineTemp,$value);
-					}
-				array_push($lines,$lineTemp);
-			}
-		}*/
 
 		$path = '?InvoiceNo=' . $jsonDecoded['InvoiceNo'] . '&InvoiceDate=' . $jsonDecoded['InvoiceDate'] . '&LineN=' . count($lineArray);
 
@@ -49,6 +36,9 @@
 		$path .= '&TaxPayable=' . $jsonDecoded['DocumentTotals']['TaxPayable'] . '&NetTotal=' . $jsonDecoded['DocumentTotals']['NetTotal'] .'&GrossTotal=' . $jsonDecoded['DocumentTotals']['GrossTotal'];
 
 		echo $path;
-		//header('Location: http://www.google.pt');
+
+        $redirect_url = "addInvoice.php" . $path; 
+		header("Location: " . $redirect_url);
+		
 	}
 ?>		
