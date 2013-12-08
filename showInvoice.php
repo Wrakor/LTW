@@ -58,6 +58,7 @@
    	echo '<tr><td><b>Total sem Imposto: </b></td><td>'  . $row['NetTotal'] . '<br></tr></td>';  
    	echo '<tr><td><b>Total: </b></td><td>'  . $row['GrossTotal'] . '<br></tr></td></table>';  
    
+    echo '<br><a href="editInvoiceForm.php?InvoiceNo=' . $_GET['InvoiceNo'] . '"><button> Editar Fatura </button></a></div>';
 	echo '<br><button id="print"> Imprimir</button><br>';
 	$path = 'exportToXML.php?InvoiceNo=' . $_GET['InvoiceNo'];
 	echo '<a href=' . $path .'><button>Exportar para XML</button></a>';
