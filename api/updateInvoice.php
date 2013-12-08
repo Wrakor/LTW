@@ -1,55 +1,71 @@
-<!DOCTYPE html>
+<?php
+	$db = new PDO('sqlite:..database/documents.db');
 
-<HTML>
-	<HEAD>	
-		<title> Sistema de faturação online </title>
-		<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<link rel="stylesheet" href="../style.css">	<script language="Javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script type='text/javascript'>
-		$(document).ready(function()
-		{
-			var i = 1;
-			 $('#addProd').live('click', function() 
-			 {				
-				$()appendTo(this);
-				i++;
-				return false;
-			 }
-			 $('#remProd').live('click', function() 
-			 {
-				if( i > 2)
-				{
-					$(this).parent'p').remove();
-					i--;
-				}
-				retur false;
-			 }
-		}
-		</script>
+	$InvoiceArray = array();	
+	$createArray = array();
+	$arrayDecode = json_decode($_POST['invoice'], true);
+
+	if(!empty($arrayDecode['InvoiceNo']))
+	{
+		$result1 = $db->query('SELECT * FROM Invoice');
+		$result2 = $db->query('SELECT * FROM Line');
+		$data1 = $result1->fetchAll();
+		$data2 = $result2->fetchAll();
 		
-	</HEAD>
-
-	<BODY>
-	<div id="conteudo">
-		<form action="returnInvoice.php" method="POST">			
-			Invoice: 
-			<br>
-			<input type="text" name="value1" value=""><label for="InvoiceNo">Número da Fatura</label>
-			<input type="text" name="value2" value=""><label for="InvoiceDate">Data da Fatura</label>
-			<input type="text" name="value3" value=""><label for="CustomerID">ID do Cliente</label>
-			<br>
-			<input type="text" name="value4" value=""><label for="ProductCode">ID do Produto</label>
-			<input type="text" name="value5" value=""><label for="Quantity">Quantidade Vendida</label>
-			<input type="text" name="value6" value=""><label for="UnitPrice">Preço Unitário</label>			
-			<input type="text" name="value7" value=""><label for="TaxType">Tipo de Taxa</label>
-			<input type="text" name="value8" value=""><label for="TaxPercentage">Percentagem da Taxa</label>
-			<a href="#" id="addProd">Acrescentar outro produto </a></h2>
-			<br>
-			<input type="text" name="value9" value=""><label for="TaxPayable">Total de Imposto</label>
-			<input type="text" name="value10" value=""><label for="NetTotal">Total sem Imposto</label>
-			<br>			
-			<input type="submit">
-		</form>		
-	<div>	
-	</BODY>		
-</HTML>
+		foreach($data1 as $row)
+		{			
+			if ($arrayDecode['InvoiceNo'] == $row['InvoiceNo'])
+			{
+				$update = $db->prepare('UPDATE Invoice SET InvoiceDate = ?, CustomerID = ?, TaxPayable = ?, NetTotal = ?, GrossTotal = ? WHERE InvoiceNo = ?');
+				$update->execute(array($arrayDecode['InvoiceDate'],
+									   $arrayDecode['CustomerID'],
+									   $arrayDecode['TaxPayable'],
+									   $arrayDecode['NetTotal'],
+									   $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal'], 
+									   $arrayDecode['InvoiceNo']));
+				$createArray = array("InvoiceNo" => $arrayDecode['InvoiceNo'],
+									 "InvoiceDate" => $arrayDecode['InvoiceDate'],
+									 "CustomerID" => $arrayDecode['CustomerID'],
+									 "TaxPayable" => $arrayDecode['TaxPayable'],
+									 "NetTotal" => $arrayDecode['NetTotal'],							   
+				 				     "GrossTotal" => $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']);	
+				$InvoiceArray = json_encode($createArray);					
+				$check = 1;
+				break;		
+			}
+			else $check = 0;
+		}
+	}
+	else 
+	{				
+		$getMaxID = $db->prepare('SELECT InvoiceNo, MAX(id) FROM Invoice');
+		$getMaxID->execute();
+		$maxID = $getMaxID->fetch(0);		
+		$int = (int) preg_replace('/[^0-9]/', '', $maxID[0]);
+		$maxID = "FT SEQ/" . ($int + 1);
+		
+		$update = $db->prepare('INSERT INTO Invoice (InvoiceNo, InvoiceDate, CustomerID, TaxPayable, NetTotal, GrossTotal) Values(?,?,?,?,?,?)');
+		$update->execute(array($maxID, 
+							   $arrayDecode['InvoiceDate'],
+							   $arrayDecode['CustomerID'],
+							   $arrayDecode['TaxPayable'],
+							   $arrayDecode['NetTotal'],
+							   $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']));
+		$createArray = array("InvoiceNo" => $maxID,
+		 					 "InvoiceDate" => $arrayDecode['InvoiceDate'],
+							 "CustomerID" => $arrayDecode['CustomerID'],
+							 "TaxPayable" => $arrayDecode['TaxPayable'],
+							 "NetTotal" => $arrayDecode['NetTotal'],							   
+				 			 "GrossTotal" => $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']);
+		$InvoiceArray = json_encode($createArray);									 
+	}
+		
+	if(empty($InvoiceArray)) 
+	{
+		echo "{“error”:{“code”:404,”reason”:”Invoice not found”}}";
+	}
+	else
+	{
+		echo $InvoiceArray;
+	}	
+?>
