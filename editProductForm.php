@@ -6,7 +6,7 @@
 
 	if ($_SESSION['permission'] == "reader")
 	{
-		echo ' Precisa de ter permissões de writer para criar documentos!';
+		echo 'Precisa de ter permissões de writer para editar documentos!';
 		exit();
 	}
 
@@ -15,7 +15,6 @@
   	$products->execute(array($_GET['ProductCode']));
   	$product = $products->fetch();
 
-  	var_dump($product);
 
 	echo '<form action="editProduct.php" method="POST">
 			<h2>Editar Produto:</h2><br>

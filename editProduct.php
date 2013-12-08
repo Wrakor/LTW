@@ -6,7 +6,7 @@
 
 	if ($_SESSION['permission'] == "reader")
 	{
-		echo ' Precisa de ter permissões de writer para criar documentos!';
+		echo ' Precisa de ter permissões de writer para editar documentos!';
 		exit();
 	}
 

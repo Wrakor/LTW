@@ -24,6 +24,8 @@
   echo '<tr><td><b class="btab"> Código Postal: </b></td><td>' . $row['PostalCode'] . '</tr></td>';
   echo '<tr><td><b class="btab"> Código do País: </b></td><td>' . $row['Country'] . '</tr></td>';
   echo '<tr><td><b>E-mail: </b></td><td>' . $row['Email'] . '</tr></td></table>';
+
+  echo '<br><a href="editCustomerForm.php?CustomerID=' . $_GET['CustomerID'] . '"><button> Editar Cliente </button></a></div>';
   }
 ?>
 </div>

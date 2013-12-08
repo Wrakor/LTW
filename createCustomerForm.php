@@ -19,7 +19,7 @@
 			Morada: <br><input type="text" name="Address"><br><br>
 			Cidade: <br><input type="text" name="City"><br><br>
 			Código Postal: <br><input type="integer" name="PostalCode"><br><br>
-			Código Pais: <br><input type="integer" name="Country"><br><br>
+			Código País: <br><input type="integer" name="Country"><br><br>
 			Email: <br><input type="text" name="Email"><br><br>
 			<input type="submit" value="Criar novo">
 		</form>
