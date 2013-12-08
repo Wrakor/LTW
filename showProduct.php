@@ -16,9 +16,12 @@
 
 	    echo ' <tr><td>' . '<b>Descrição: </b></td><td>' . $row['ProductDescription'] . '</td></tr>';  
 	    echo '<tr><td><b>Preço Unitário: </b></td><td>' . $row['UnitPrice'] . '</tr></td>'; 
-	    echo '<tr><td><b>Unidade de medida: </b></td><td>' . $row['UnitOfMeasure'] . '</tr></td></table></div>';  
+	    echo '<tr><td><b>Unidade de medida: </b></td><td>' . $row['UnitOfMeasure'] . '</tr></td></table>';  
 	}	
-?>
+
+
+	echo '<br><a href="editProductForm.php?ProductCode=' . $_GET['ProductCode'] . '"><button> Editar Produto </button></a></div>';
+	?>
 </div>
 </div>
 </body>
