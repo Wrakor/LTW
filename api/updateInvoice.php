@@ -71,7 +71,7 @@
 		$getMaxID->execute();
 		$maxID = $getMaxID->fetch(0);		
 		$int = (int) preg_replace('/[^0-9]/', '', $maxID[0]);
-		$maxID = "FT SEQ/" . ($int + 1);
+		$maxID = "FT-SEQ/" . ($int + 1);
 		
 		$update = $db->prepare('INSERT INTO Invoice (InvoiceNo, InvoiceDate, CustomerID, TaxPayable, NetTotal, GrossTotal) Values(?,?,?,?,?,?)');
 		$update->execute(array($maxID, 

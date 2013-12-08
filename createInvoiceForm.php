@@ -57,7 +57,7 @@
 	});	
 	</script>		
 
-		<form id="form" action="createInvoice.php" method="GET">			
+		<form id="form" action="createInvoice.php" method="POST">			
 			Invoice: 
 			<br>			
 			<label for="InvoiceDate">Data da Fatura</label><input type="date" name="InvoiceDate" value=""><br>
