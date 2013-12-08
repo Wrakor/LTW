@@ -131,8 +131,6 @@ if(file_exists("teste.xml")) {
 		}
 	}
 	echo $path;
-	 /*$redirect_url = "addInvoice.php" . $path; 
-	 header("Location: " . $redirect_url);*/
 }
 
 else {

@@ -99,14 +99,14 @@
         </Line>
         <Line>
           <LineNumber>2</LineNumber>
-          <ProductCode>160</ProductCode>
-          <ProductDescription>Reparação de PC</ProductDescription>
-          <Quantity>1</Quantity>
+          <ProductCode>140</ProductCode>
+          <ProductDescription>Reparação de Maquina</ProductDescription>
+          <Quantity>3</Quantity>
           <UnitOfMeasure>Unidade</UnitOfMeasure>
-          <UnitPrice>335</UnitPrice>
-          <TaxPointDate>2013-10-18</TaxPointDate>
-          <Description>Madeita de pinho laminada</Description>
-          <CreditAmount>335</CreditAmount>
+          <UnitPrice>400</UnitPrice>
+          <TaxPointDate>2012-10-12</TaxPointDate>
+          <Description>Madeira</Description>
+          <CreditAmount>535</CreditAmount>
           <Tax>
             <TaxType>IVA</TaxType>
             <TaxCountryRegion>PT</TaxCountryRegion>

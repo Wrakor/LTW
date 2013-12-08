@@ -59,6 +59,18 @@
 	    <input type = "text" name = "InvoiceNo" maxlength = "30" />
 	    <input type="submit"/>
 	    </form><br>
+
+	    <form action="importInvoices.php" method="post">
+	    Importar Faturas de outras BDs: <br>
+	    URL: <br> <input type = "text" name = "url" maxlength = "300" /><br>
+	    ID: <br><input type = "text" name = "InvoiceNo" maxlength = "30" /><br>
+	    <input type="submit"/>
+	    </form><br>
+
+	    <form action="importFromXML.php" method="post">
+	    Importar Faturas em XML: <br>
+	    <input type="submit"/>
+	    </form>
 </div>  
 	
 </div>  

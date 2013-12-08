@@ -21,12 +21,12 @@
 	
 	$update = $db->prepare('INSERT INTO Invoice (InvoiceNo, InvoiceDate, CustomerID, TaxPayable, NetTotal, GrossTotal) Values(?,?,?,?,?,?)');
 	$update->execute(array($maxID, 
-						   $_POST['InvoiceDate'],
-						   $_POST['CustomerID'],
-						   $_POST['TaxPayable'],
-						   $_POST['NetTotal'],
-						   $_POST['TaxPayable'] + $_POST['NetTotal']));
-	$count = count($_POST['ProductCode']);	
+						   $_GET['InvoiceDate'],
+						   $_GET['CustomerID'],
+						   $_GET['TaxPayable'],
+						   $_GET['NetTotal'],
+						   $_GET['TaxPayable'] + $_GET['NetTotal']));
+	$count = count($_GET['ProductCode']);	
 	$lineNumber = 0;
 	$getMaxID = $db->prepare('SELECT InvoiceNo, MAX(id) FROM Invoice');
 	$getMaxID->execute();
@@ -39,12 +39,12 @@
 		$update = $db->prepare('INSERT INTO Line (idInvoice, LineNumber, ProductCode, Quantity, UnitPrice, CreditAmount, TaxType, TaxPercentage) Values(?,?,?,?,?,?,?,?)');			
 		$update->execute(array($maxID,
 							   $lineNumber,
-							   $_POST['ProductCode'][$i],
-							   $_POST['Quantity'][$i],
-						       $_POST['UnitPrice'][$i],
-						       $_POST['Quantity'][$i] *  $_POST['UnitPrice'][$i],
-						       $_POST['TaxType'][$i],
-						       $_POST['TaxPercentage'][$i]));		
+							   $_GET['ProductCode'][$i],
+							   $_GET['Quantity'][$i],
+						       $_GET['UnitPrice'][$i],
+						       $_GET['Quantity'][$i] *  $_GET['UnitPrice'][$i],
+						       $_GET['TaxType'][$i],
+						       $_GET['TaxPercentage'][$i]));		
 	}
 	
 	echo "Fatura criada com sucesso!";
