@@ -1,9 +1,25 @@
 <?php
-	$db = new PDO('sqlite:..database/documents.db');
+	$db = new PDO('sqlite:database/documents.db');
 
 	$InvoiceArray = array();	
 	$createArray = array();
-	$arrayDecode = json_decode($_POST['invoice'], true);
+	$createArray = array("InvoiceNo" => '',
+							   "InvoiceDate" => '2013-12-22',
+							   "CustomerID" => 3,
+							   "Line" => array(array("LineNumber" => 2,
+											   "ProductCode" => 125, 
+											   "Quantity" => 12,
+											   "UnitPrice" => 4,
+											   "CreditAmount" => 100,
+											   "Tax" => array("TaxType" => 'Iva',
+															  "TaxPercentage" => 23.00))),							   
+						       "TaxPayable" => 37,							   
+							   "NetTotal" => 123,
+							   "GrossTotal" => 160);
+							   
+	$InvoiceArray = json_encode($createArray);	
+	$arrayDecode = json_decode($InvoiceArray, true);
+	//$arrayDecode = json_decode($_POST['invoice'], true);
 
 	if(!empty($arrayDecode['InvoiceNo']))
 	{
@@ -23,9 +39,22 @@
 									   $arrayDecode['NetTotal'],
 									   $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal'], 
 									   $arrayDecode['InvoiceNo']));
+				foreach($arrayDecode['Line'] as $rowLine)
+				{									
+					$update = $db->prepare('UPDATE Line SET LineNumber = ?, ProductCode = ?, Quantity = ?, UnitPrice = ?, CreditAmount = ?, TaxType = ?, TaxPercentage = ? WHERE idInvoice = ?');
+					$update->execute(array($rowLine['LineNumber'],
+									   $rowLine['ProductCode'],
+									   $rowLine['Quantity'],
+									   $rowLine['UnitPrice'],
+									   $rowLine['CreditAmount'],
+									   $rowLine['Tax']['TaxType'],
+									   $rowLine['Tax']['TaxPercentage'], 
+									   $arrayDecode['InvoiceNo']));
+				}
 				$createArray = array("InvoiceNo" => $arrayDecode['InvoiceNo'],
 									 "InvoiceDate" => $arrayDecode['InvoiceDate'],
 									 "CustomerID" => $arrayDecode['CustomerID'],
+									 "Line" => $arrayDecode['Line'],
 									 "TaxPayable" => $arrayDecode['TaxPayable'],
 									 "NetTotal" => $arrayDecode['NetTotal'],							   
 				 				     "GrossTotal" => $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']);	
@@ -51,9 +80,22 @@
 							   $arrayDecode['TaxPayable'],
 							   $arrayDecode['NetTotal'],
 							   $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']));
+	    foreach($arrayDecode['Line'] as $rowLine)
+		{			
+			$update = $db->prepare('INSERT INTO Line (idInvoice,LineNumber, ProductCode, Quantity, UnitPrice, CreditAmount, TaxType, TaxPercentage) Values(?,?,?,?,?,?,?,?)');			
+			$update->execute(array($maxID,
+							   $rowLine['LineNumber'],
+							   $rowLine['ProductCode'],
+							   $rowLine['Quantity'],
+							   $rowLine['UnitPrice'],
+							   $rowLine['CreditAmount'],
+							   $rowLine['Tax']['TaxType'],
+							   $rowLine['Tax']['TaxPercentage']));
+		}
 		$createArray = array("InvoiceNo" => $maxID,
 		 					 "InvoiceDate" => $arrayDecode['InvoiceDate'],
 							 "CustomerID" => $arrayDecode['CustomerID'],
+							 "Line" => $arrayDecode['Line'],
 							 "TaxPayable" => $arrayDecode['TaxPayable'],
 							 "NetTotal" => $arrayDecode['NetTotal'],							   
 				 			 "GrossTotal" => $arrayDecode['TaxPayable'] + $arrayDecode['NetTotal']);
