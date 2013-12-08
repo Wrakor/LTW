@@ -27,18 +27,18 @@
 				$('#remLine').remove();
 			j++;
 			$('<p>').appendTo(scntDiv);
-			$('<label for="ProductCode">ID do Produto</label><input type="text" name="ProductCode[]" value=""><br>').appendTo(scntDiv);
+			$('<br><label for="ProductCode">ID do Produto</label><input type="text" name="ProductCode[]" value=""><br>').appendTo(scntDiv);
 			j++;
 			$('<label for="Quantity">Quantidade Vendida</label><input type="text" name="Quantity[]" value=""><br>').appendTo(scntDiv);
 			j++;
-			$('<label for="UnitPrice">Preço Unitário</label><input type="text" name="UnitPrice[]" value=""><br>').appendTo(scntDiv);
+			$('<label for="UnitPrice">Pre&ccedil;o Unit&aacute;rio</label><input type="text" name="UnitPrice[]" value=""><br>').appendTo(scntDiv);
 			j++;
 			$('<label for="TaxType">Tipo de Taxa</label><input type="text" name="TaxType[]" value=""><br>').appendTo(scntDiv);
 			j++;
 			$('<label for="TaxPercentage">Percentagem da Taxa</label><input type="text" name="TaxPercentage[]" value=""><br>').appendTo(scntDiv);
 			$('</p>').appendTo(scntDiv);
 			$('<a href="#" id="remLine">	Remove Line  </a>').appendTo(scntDiv);				
-			$('<a style="padding-left: 10px" href="#" id="addLine">  Add Line</a><br>').appendTo(scntDiv);								
+			$('<a style="padding-left: 10px" href="#" id="addLine">  Add Line</a>').appendTo(scntDiv);								
 				
 			i++;
 			return false;
@@ -66,7 +66,7 @@
 			<div id="line">			
 				<label for="ProductCode">ID do Produto</label><input type="text" name="ProductCode[]" value=""><br>
 				<label for="Quantity">Quantidade Vendida</label><input type="text" name="Quantity[]" value=""><br>
-				<label for="UnitPrice">Preço Unitário</label><input type="text" name="UnitPrice[]" value=""><br>
+				<label for="UnitPrice">Pre&ccedil;o Unit&aacute;rio</label><input type="text" name="UnitPrice[]" value=""><br>
 				<label for="TaxType">Tipo de Taxa</label><input type="text" name="TaxType[]" value=""><br>
 				<label for="TaxPercentage">Percentagem da Taxa</label><input type="text" name="TaxPercentage[]" value=""><br>	
 				<h4><a href="#" id="addLine">Add Line</a></h4>			
