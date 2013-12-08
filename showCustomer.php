@@ -15,9 +15,8 @@
    	echo '<h3 class="btab">' . '- ' . $row['CustomerID'] . '</h3></a>'; 
 
   echo '<div class="btab"><table border="1"><tr><td>' . '<b>Número de Contribuinte: </b></td><td>' .$row['CustomerTaxID'] . '</tr></td>';  
-  echo '<tr><td><b> Nome do Cliente: </b></td><td>'  . $row['CompanyName'] . '</tr></td></table></div>';  
+  echo '<tr><td><b> Nome do Cliente: </b></td><td>'  . $row['CompanyName'] . '</tr></td>';  
 
-  echo '<div class="text"><table border="1">';
   echo '<tr><td><b>Dados de Morada: </b><br></tr></td>';
   echo '<tr><td><b class="btab"> Rua ou Avenida: </b></td><td>' . $row['AdressDetail'] . '</tr></td>';
   echo '<tr><td><b class="btab"> Cidade: </b></td><td>' . $row['City'] . '</tr></td>';
