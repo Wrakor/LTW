@@ -49,36 +49,6 @@
 	
 	echo "Fatura criada com sucesso!";
 		
-	/*$result1 = $db->query('SELECT * FROM Invoice');
-	$result2 = $db->query('SELECT * FROM Line');	
-	$data1 = $result1->fetchAll();
-	$data2 = $result2->fetchAll();
-	
-	foreach($data1 as $row)
-	{		
-		if($row['InvoiceNo'] == $maxID)
-		{			
-			echo '<b class="btab">- Invoice Number </b>'  . $row['InvoiceNo'] . '<br>';  
-			echo '<b class="btab">- Invoice Date </b>'  . $row['InvoiceDate'] . '<br>';  
-			echo '<b class="btab">- Customer ID </b>'  . $row['CustomerID'] . '<br>';  
-			echo '<b class="btab">- Tax Payable </b>'  . $row['TaxPayable'] . '<br>';  
-			echo '<b class="btab">- Net Total </b>'  . $row['NetTotal'] . '<br>';
-			echo '<b class="btab">- Gross Total </b>'  . $row['GrossTotal'] . '<br><br>'; 
-			foreach($data2 as $row2)
-			{
-				if($row2['idInvoice'] == $maxID)
-				{
-					echo '<b class="btab">- Line Number </b>'  . $row2['LineNumber'] . '<br>';  
-					echo '<b class="btab">- Product Code </b>'  . $row2['ProductCode'] . '<br>';  
-					echo '<b class="btab">- Quantity </b>'  . $row2['Quantity'] . '<br>';
-					echo '<b class="btab">- Unit Price </b>'  . $row2['UnitPrice'] . '<br>';  
-					echo '<b class="btab">- Credit Amount </b>'  . $row2['CreditAmount'] . '<br>';
-					echo '<b class="btab">- Tax Type </b>'  . $row2['TaxType'] . '<br>';  
-					echo '<b class="btab">- Tax Percentage </b>'  . $row2['TaxPercentage'] . '<br><br>';    					
-				}
-			}
-		}
-	}	*/	
 ?>
 	</div>
 </div>
