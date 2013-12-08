@@ -106,7 +106,7 @@
           <UnitPrice>400</UnitPrice>
           <TaxPointDate>2012-10-12</TaxPointDate>
           <Description>Madeira</Description>
-          <CreditAmount>335</CreditAmount>
+          <CreditAmount>535</CreditAmount>
           <Tax>
             <TaxType>IVA</TaxType>
             <TaxCountryRegion>PT</TaxCountryRegion>
