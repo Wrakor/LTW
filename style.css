@@ -62,7 +62,7 @@ body {
 
 #header-contents
 {
-	width: 1000px;
+	width: 1080px;
 	margin: auto;
 }
 
@@ -158,29 +158,37 @@ button{
 	box-shadow: 2px 2px 1px #888888;
 }
 
-#documents a{
+.documents a{
 	color: white;
 }
 
-#documents li{
+.documents li{
 	background-color: #222222;
 	padding: 0% 2%;
 	display: inline;
 	border-left: 1px solid white;
 }
 
-#documents li:first-child {
+.documents li:first-child {
 	border-left: none;
 }
 
-#header #documents {	
+#header .documents {	
 	visibility: hidden;
-	padding-left: 63%;
 	position: fixed;
 	margin-top: 10px;
 }
 
-#documents ul
+#checkDocuments {
+	padding-left: 55%;
+}
+
+#createDocuments {
+	padding-left: 68%;
+}
+
+
+.documents ul
 {
 	padding: 10px;
 	background-color: #222222;

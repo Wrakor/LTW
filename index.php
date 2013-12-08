@@ -6,20 +6,7 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-
-	$(document).ready(function(){
- 	 		$("#consultar").click(function(e) {
-      			if ($('#documents').css('visibility') == 'hidden')
-      			{
-      				$('#documents').css('visibility', 'visible');
-      			}
-      			else 
-      				$('#documents').css('visibility', 'hidden');
-      			e.preventDefault();
-      		});
-		});
-    </script>
+	<script src="javascript/header.js"></script>
 </head>
 
 <body>
@@ -32,20 +19,28 @@
 		        <nav>
 		            <ul>
 		                <li><a href="index.php"> <img src="images/home-white.png" width="15" height="15" /> Home </a></li>
-		                <li id="consultar"><a href=""> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
+		                <li id="check"><a href=""> <img src="images/sheet-white.png" width="15" height="15" />  Consultar Documentos </a></li>
+		                <li id="create"><a href=""> <img src="images/create-sheet.png" width="15" height="15" />  Criar Documentos </a></li>
 		                <li><a href="search.php"> <img src="images/search-white.png" width="15" height="15" /> Pesquisa Avançada </a></li>
 		            </ul>
 		        </nav>
 		    </div>
 	    </div>
-	    <div id="documents">
-		<ul>
-		  <li><a href="checkInvoices.php"> Faturas </a></li>
-		  <li><a href="checkProducts.php"> Produtos e Serviços </a></li>
-		  <li><a href="checkCustomers.php"> Clientes </a></li>
-		</ul>
+	    <div class="documents" id="checkDocuments">
+			<ul>
+			  <li><a href="checkInvoices.php"> Faturas </a></li>
+			  <li><a href="checkProducts.php"> Produtos e Serviços </a></li>
+			  <li><a href="checkCustomers.php"> Clientes </a></li>
+			</ul>
+		</div>
+		<div class="documents" id="createDocuments">
+			<ul>
+			  <li><a href="createInvoices.php"> Faturas </a></li>
+			  <li><a href="createProducts.php"> Produtos e Serviços </a></li>
+			  <li><a href="createCustomers.php"> Clientes </a></li>
+			</ul>
+		</div>
 	</div>
-</div>
 	
 
 	<?php

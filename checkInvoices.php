@@ -1,25 +1,9 @@
 <?php include 'header.php';  ?>
 
-<script>
-		$(document).ready(function(){
- 	 		$(".mostrar").click(function(e) {
-      			$(this).prev('.hiddenText').slideToggle("slow");
-            var text = $(this).text();
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="javascript/checkDocuments.js"></script>
 
-            if (text == " Ver mais ")
-            {
-              $(this).text(' Ver menos ');
-            }
-            else
-            {
-              $(this).text(' Ver mais ');
-            }
-      			e.preventDefault();
-      		});
-		});
-	</script>
-
-	<?php 
+<?php 
 
 	$db = new PDO('sqlite:database/documents.db');
  	$invoices = $db->query('SELECT * FROM Invoice');
@@ -67,15 +51,15 @@
 		echo '</div>'; 
 		echo '<h4 class="mostrar"> Ver mais </h4><br>';    
 	} 
-	?>
-	</div>
+?>
+</div>
 	  <div id="pesquisas" class="texto">
 	    <form action="showInvoice.php" method="get">
 	    Pesquisar Faturas por ID: <br>
 	    <input type = "text" name = "InvoiceNo" maxlength = "30" />
 	    <input type="submit"/>
 	    </form><br>
-	</div>  
+</div>  
 	
-	</div>  
+</div>  
 </body>

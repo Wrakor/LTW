@@ -9,7 +9,7 @@
 </style>
 <script>
 	$(document).ready(function(){
- 	 		$("button").click(function(e) {
+ 	 		$("#print").click(function(e) {
  	 			window.print();
  	 		});
  	 	});
@@ -54,13 +54,15 @@
 	  		}
 	  	}
 
-echo '<tr><td><b>Total de Imposto: </b></td><td>'  . $row['TaxPayable'] . '<br></tr></td>';  
+	echo '<tr><td><b>Total de Imposto: </b></td><td>'  . $row['TaxPayable'] . '<br></tr></td>';  
    	echo '<tr><td><b>Total sem Imposto: </b></td><td>'  . $row['NetTotal'] . '<br></tr></td>';  
    	echo '<tr><td><b>Total: </b></td><td>'  . $row['GrossTotal'] . '<br></tr></td></table>';  
    
-	   	echo '<button> Imprimir</button>';
+	echo '<br><button id="print"> Imprimir</button><br>';
+	$path = 'exportToXML.php?InvoiceNo=' . $_GET['InvoiceNo'];
+	echo '<a href=' . $path .'><button>Exportar para XML</button></a>';
    }
-     ?>
+  	?>
 	</div>
 	</div>
 </body>

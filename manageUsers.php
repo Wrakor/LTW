@@ -1,5 +1,6 @@
 <?php 
 	include 'header.php';
+	
 	$db = new PDO('sqlite:database/users.db');
  	$users = $db->query('SELECT * FROM User WHERE Permission = "reader" OR Permission = "writer"');
   	$data = $users->fetchAll();
@@ -18,7 +19,7 @@
 
  	echo '
  		<div>
-		<form action="changeUserPermissions.php" method="GET">
+		<form action="changeUserPermissions.php" method="POST">
 			Utilizador: 
 			<select name="user">';
 
