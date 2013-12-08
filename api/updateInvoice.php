@@ -1,5 +1,5 @@
 <?php
-	$db = new PDO('sqlite:database/documents.db');
+	$db = new PDO('sqlite:..database/documents.db');
 
 	$InvoiceArray = array();	
 	$createArray = array();
