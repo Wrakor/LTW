@@ -15,8 +15,6 @@
   	$products->execute(array($_GET['ProductCode']));
   	$product = $products->fetch();
 
-  	var_dump($product);
-
 	echo '<form action="editProduct.php" method="POST">
 			<h2>Editar Produto:</h2><br>
 			Código: <br><input type="text" name="ProductCode" value='. $product['ProductCode'] .' readonly><br><br>
