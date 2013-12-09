@@ -56,7 +56,7 @@
 				<p>Username:</p>
 				<INPUT type = "string" name = "Name" maxlength = "15" />
 				<p>Password:</p>
-				<INPUT type = "password" name = "Password" maxlength = "16" />
+				<INPUT type = "password" name = "Password" maxlength = "30" />
 				<br><br>
 				<input type="submit"/>
 				</FORM> <br><br>
@@ -80,10 +80,11 @@
 
 		if ($_SESSION['permission'] == "admin")
 		{
-			echo '<button><a href="manageUsers.php"> Gerir Utilizadores </a></button><br><br>';
+			echo '<a href="manageUsers.php"><button> Gerir Utilizadores </button></a><br><br>';
 		}
 
-		echo '<button><a href="logout.php"> Logout </a></button>';
+		echo '<a href="logout.php"><button> Logout </button></a>';
+
 		echo '</div></div>';
 
 	}

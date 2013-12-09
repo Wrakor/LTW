@@ -69,6 +69,7 @@
 
 	    <form action="importFromXML.php" method="post">
 	    Importar Faturas em XML: <br>
+	    URL: <br> <input type = "text" name = "url" maxlength = "300" /><br>
 	    <input type="submit"/>
 	    </form>
 </div>  
