@@ -22,8 +22,6 @@
 		$('#addLine').live('click', function() 
 		{
 			$('#addLine').remove();
-			if (i > 2)
-				$('#remLine').remove();
 			j++;
 			$('<p>').appendTo(scntDiv);
 			$('<br><label for="ProductCode">ID do Produto</label><br><input type="text" name="ProductCode[]" value=""><br><br>').appendTo(scntDiv);
@@ -35,28 +33,16 @@
 			$('<label for="TaxType">Tipo de Taxa</label><br><input type="text" name="TaxType[]" value=""><br><br>').appendTo(scntDiv);
 			j++;
 			$('<label for="TaxPercentage">Percentagem da Taxa</label><br><input type="text" name="TaxPercentage[]" value=""><br><br>').appendTo(scntDiv);
-			$('</p>').appendTo(scntDiv);
-			$('<h4><a href="#" id="remLine">	Remove Line  </a></h4>').appendTo(scntDiv);				
-			$('<h4><a style="padding-left: 10px" href="#" id="addLine">  Add Line</a></h4>').appendTo(scntDiv);								
+			$('</p>').appendTo(scntDiv);		
+			$('<h4><a href="#" id="addLine">  Add Line</a></h4>').appendTo(scntDiv);								
 				
 			i++;
-			return false;
-		});
-					
-		$('#remLine').live('click', function() 
-		{ 				
-			if( i > 2 ) 
-			{					
-				$(this).prev('p').remove();
-				i--;
-				j = j - 4;
-			}
 			return false;
 		});
 	});	
 	</script>		
 
-		<form id="form" action="createInvoice.php" method="POST">			
+		<form id="form" action="createInvoice.php" method="GET">			
 			<h2>Adicionar Fatura:</h2><br>		
 			<label for="InvoiceDate">Data da Fatura</label><br><input type="date" name="InvoiceDate" value=""><br><br>
 			<label for="CustomerID">ID do Cliente</label><br><input type="text" name="CustomerID" value=""><br><br>
