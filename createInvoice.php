@@ -36,13 +36,14 @@
 	for ($i = 0; $i < $count; $i++)
 	{		
 		$lineNumber++;
+		$CreditAmount = $_GET['Quantity'][$i]*$_GET['UnitPrice'][$i];
 		$update = $db->prepare('INSERT INTO Line (idInvoice, LineNumber, ProductCode, Quantity, UnitPrice, CreditAmount, TaxType, TaxPercentage) Values(?,?,?,?,?,?,?,?)');			
 		$update->execute(array($maxID,
 							   $lineNumber,
 							   $_GET['ProductCode'][$i],
 							   $_GET['Quantity'][$i],
 						       $_GET['UnitPrice'][$i],
-						       $_GET['Quantity'][$i] *  $_GET['UnitPrice'][$i],
+						       $CreditAmount,
 						       $_GET['TaxType'][$i],
 						       $_GET['TaxPercentage'][$i]));		
 	}

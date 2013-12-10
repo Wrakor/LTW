@@ -12,8 +12,9 @@
 
 	$db = new PDO('sqlite:database/documents.db');
 	$query = $db->prepare("SELECT * FROM Product WHERE ProductCode = ?");
-	$product = $query->execute(array($_POST['ProductCode']));
-
+	$query->execute(array($_POST['ProductCode']));
+	$product = $query->fetch();
+	
 	if (!$product)
 	{
 		$Insert= $db->prepare("INSERT INTO Product(ProductCode,ProductDescription, UnitPrice, UnitOfMeasure) VALUES (:code, :description, :price, :measure)");
